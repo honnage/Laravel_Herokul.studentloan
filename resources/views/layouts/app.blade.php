@@ -7,7 +7,8 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>STUDENTLOAN</title>
+
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -21,10 +22,10 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-dark shadow-sm " style="background-color: #34495E ;">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    STUDENTLOAN
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -33,7 +34,30 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-
+                        <ul class="navbar-nav mr-auto">
+                            {{-- @if(Auth::user()->checkIsStatus()) --}}
+                            @if(Auth::user()->StatusID == 0)
+                                <li class="nav-item">
+                                    <a class="nav-link" href="">{{ ('ตรวจเอกสาร') }}</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="">{{ ('ธุรกรรม') }}</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('LoanType.index') }}">{{ ('ประเภทการกู้') }}</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="">{{ ('ข้อมูลการกู้') }}</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="">{{ ('ข้อมูลผู้ใช้ในระบบ') }}</a>
+                                </li>
+                            @endif
+                            <li class="nav-item">
+                                <a class="nav-link" href="/home">{{ ('โปรไฟล์') }}</a>
+                            </li>
+                            {{-- @endif --}}
+                        </ul>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
