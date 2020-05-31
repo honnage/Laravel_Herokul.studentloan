@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\LoanTypeModel;
+use Illuminate\Support\Facades\DB;
 
 class LoanTypeController extends Controller
 {
@@ -24,7 +26,7 @@ class LoanTypeController extends Controller
      */
     public function create()
     {
-        $loantype = DB::table('LoanType')->get();
+        $loantype = DB::table('loan_types')->get();
         return view('LoanType.create',compact('loantype'));
     }
 
@@ -70,8 +72,8 @@ class LoanTypeController extends Controller
      */
     public function edit($id)
     {
-        $loantype = DB::table('LoanType')
-        ->where('LoanType.id' ,'=',$id)->get();
+        $loantype = DB::table('loan_types')
+        ->where('loan_types.id' ,'=',$id)->get();
         return view('LoanType.edit',compact('loantype'));
 
     }
@@ -91,7 +93,7 @@ class LoanTypeController extends Controller
             'salary'=>'required',
         ]);
 
-            DB::table('LoanType')
+            DB::table('loan_types')
             ->where('id','=',$id)
             ->update([
             'code' => $request->code,
@@ -110,7 +112,7 @@ class LoanTypeController extends Controller
      */
     public function destroy($id)
     {
-        DB::table('LoanType')->where('id','=',$id)->delete();
+        DB::table('loan_types')->where('id','=',$id)->delete();
         return redirect('LoanType');
     }
 }
