@@ -50,7 +50,7 @@ http://www.tooplate.com/view/2091-ziggy
         </section>
 
 
-        <section class="second-section">
+        {{-- <section class="second-section">
           <div class="container">
             <div class="row">
               <div class="col-md-3 col-sm-6">
@@ -91,7 +91,7 @@ http://www.tooplate.com/view/2091-ziggy
               </div>
             </div>
           </div>
-        </section>
+        </section> --}}
 
         {{-- <section class="third-section">
           <div class="container">
