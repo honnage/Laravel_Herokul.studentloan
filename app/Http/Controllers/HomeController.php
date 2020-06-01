@@ -32,7 +32,7 @@ class HomeController extends Controller
         ->get();
 
         $profiles = DB::table('profiles')
-        ->where('Profiles.user_id','=',$id)
+        ->where('profiles.user_id','=',$id)
         ->get();
 
         return view('home',compact('users','profiles'));
