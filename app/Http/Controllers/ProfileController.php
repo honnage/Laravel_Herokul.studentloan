@@ -66,7 +66,7 @@ class ProfileController extends Controller
         ]);
 
         DB::table('profiles')
-        ->where('user_ID','=',$id)
+        ->where('user_id','=',$id)
         ->update([
         'IdentificationCode' => $request->IdentificationCode,
         'fname' => $request->fname,
