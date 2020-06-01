@@ -14,6 +14,7 @@
                         </div>
                     @endif
                     {{-- <p><strong>Name : </strong>{!! Auth::user()->name !!}</p> --}}
+                    <p><strong>Email : </strong>{!! Auth::user()->id !!}</p>
                     <p><strong>Email : </strong>{!! Auth::user()->email !!}</p>
 
                     @if( Auth::user()->StatusID == 1)
