@@ -22,6 +22,7 @@
                     @else
                         <p><strong>สถานะ : </strong>User</p>
                     @endif
+                    {{-- {{$users->id}} --}}
                 </div>
             </div>
         </div>
