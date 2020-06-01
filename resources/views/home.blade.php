@@ -13,8 +13,14 @@
                             {{ session('status') }}
                         </div>
                     @endif
+                    {{-- <p><strong>Name : </strong>{!! Auth::user()->name !!}</p> --}}
+                    <p><strong>Email : </strong>{!! Auth::user()->email !!}</p>
 
-                    You are logged in!
+                    @if( Auth::user()->StatusID == 1)
+                        <p><strong>สถานะ : </strong>Admin</p>
+                    @else
+                        <p><strong>สถานะ : </strong>User</p>
+                    @endif
                 </div>
             </div>
         </div>
