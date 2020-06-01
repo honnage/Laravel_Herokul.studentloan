@@ -36,7 +36,7 @@
                     <ul class="navbar-nav mr-auto">
                         <ul class="navbar-nav mr-auto">
                             {{-- @if(Auth::user()->checkIsStatus()) --}}
-                            @if(Auth::user()->id == 1)
+                            {{-- @if(Auth::user()->id == 1)
                                 <li class="nav-item">
                                     <a class="nav-link" href="">{{ ('ตรวจเอกสาร') }}</a>
                                 </li>
@@ -52,7 +52,7 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="">{{ ('ข้อมูลผู้ใช้ในระบบ') }}</a>
                                 </li>
-                            @endif
+                            @endif --}}
                             <li class="nav-item">
                                 <a class="nav-link" href="/home">{{ ('โปรไฟล์') }}</a>
                             </li>
