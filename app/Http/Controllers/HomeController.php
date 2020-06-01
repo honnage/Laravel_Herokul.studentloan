@@ -31,6 +31,10 @@ class HomeController extends Controller
         ->where('users.id','=',$id)
         ->get();
 
-        return view('home',compact('users'));
+        $profiles = DB::table('profiles')
+        ->where('Profiles.user_id','=',$id)
+        ->get();
+
+        return view('home',compact('users','profiles'));
     }
 }
