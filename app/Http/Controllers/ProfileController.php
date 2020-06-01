@@ -47,7 +47,7 @@ class ProfileController extends Controller
         $id = Auth::user()->id;
 
         $profiles = DB::table('profiles')
-                    ->where('user_ID','=',$id)
+                    ->where('profiles.user_id','=',$id)
                     ->get();
         return view('Profiles.edit',compact('profiles'));
     }
