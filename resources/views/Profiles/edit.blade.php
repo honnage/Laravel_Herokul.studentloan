@@ -1,4 +1,4 @@
-@extends('layouts.user')
+@extends('layouts.app')
 @section('content')
 @foreach($profiles as $profile)
 
@@ -36,13 +36,16 @@
 
                     <div class="form-group col-xs-12 col-sm-12 col-md-12 my-2">
                         <label class="col-sm-2">&nbsp; เพศ :<label style="color:red;"> * </label></label>
-                        <div class = "col-sm-10">
+                        <div class = "col-sm-4">
                             <select class="form-control " name="gender">
                                 <option value="{{ $profile->gender }}">สถานะปัจุบัน {{ $profile->gender }}</option>
                                 <option value="เพศชาย">เพศชาย</option>
                                 <option value="เพศหญิง">เพศหญิง</option>
                             </select>
                         </div>
+
+                        <label class="col-sm-2">&nbsp; วันเกิด :<label style="color:red;"> * </label></label>
+                        <input type="date" class="form-control col-sm-4" name="birthdate" id="birthdate"  value="{{$profile->birthdate}}" >
                     </div>
 
                     <div class="form-group col-xs-12 col-sm-12 col-md-12 my-2">
@@ -63,7 +66,7 @@
                 </div>
                 <center>
                     <div class="form-group col-xs-12 col-sm-12 col-md-12 my-4">
-                        <button type="submit" name="submit" class="btn btn-success">เพื่มข้อมูล</button>
+                        <button type="submit" name="submit" class="btn btn-success">อัพเดท</button>
                         <button class="btn btn-secondary" type="reset">ยกเลิก</button>
                     </div>
                 </center>

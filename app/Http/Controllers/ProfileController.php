@@ -41,4 +41,41 @@ class ProfileController extends Controller
 
         return redirect('/home');
     }
+
+    public function edit($id)
+    {
+        $id = Auth::user()->id;
+
+        $profiles = DB::table('profiles')
+                    ->where('user_ID','=',$id)
+                    ->get();
+        return view('Profiles.edit',compact('profiles'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'IdentificationCode' => 'required',
+            'fname' => 'required',
+            'lname' => 'required',
+            'birthdate'=>'required',
+            'gender' => 'required',
+            'phone' => 'required',
+            'email' => 'required',
+            'address' => 'required',
+        ]);
+
+        DB::table('profiles')
+        ->where('user_ID','=',$id)
+        ->update([
+        'IdentificationCode' => $request->IdentificationCode,
+        'fname' => $request->fname,
+        'lname' => $request->lname,
+        'birthdate' => $request->birthdate,
+        'gender' => $request->gender,
+        'email' => $request->email,
+        'address' => $request->address,
+    ]);
+    return redirect('/home');
+    }
 }
