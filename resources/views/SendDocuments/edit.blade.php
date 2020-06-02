@@ -68,36 +68,25 @@
 
                     <div class="form-group col-xs-12 col-sm-12 col-md-12 my-2">
                         <label class="col-sm-2">&nbsp; ปีการศึกษา :</label>
-                        <input type="text" class="form-control col-sm-6" name="school_year" id="school_year" placeholder="ปีการศึกษา"  value="{{ $adminSend->school_year }}" readonly>
+                        <input type="text" class="form-control col-sm-4" name="school_year" id="school_year" placeholder="ปีการศึกษา"  value="{{ $adminSend->year }}" readonly>
 
                         <label class="col-sm-2">&nbsp; ภาคเรียน :</label>
-                        <input type="text" class="form-control col-sm-2" name="term" id="term" placeholder="ภาคเรียน" value="{{ $adminSend->term }}" readonly>
+                        <input type="text" class="form-control col-sm-4" name="term" id="term" placeholder="ภาคเรียน" value="{{ $adminSend->term }}" readonly>
                     </div>
 
                     <div class="form-group col-xs-12 col-sm-12 col-md-12 my-2">
                         <label class="col-sm-2">&nbsp; ประเภทการกู้ :</label>
-                        <input type="text" class="form-control col-sm-6" name="type_id" id="type_id" placeholder="ประเภทการกู้" value="{{ $adminSend->type }}" readonly>
+                        <input type="text" class="form-control col-sm-4" name="type_id" id="type_id" placeholder="ประเภทการกู้" value="{{ $adminSend->type }}" readonly>
 
                         <label class="col-sm-2">&nbsp; ชื่อย่อ :</label>
-                        <input type="text" class="form-control col-sm-2" name="code" id="code" placeholder="ชื่อย่อ" value="{{ $adminSend->code }}" readonly>
+                        <input type="text" class="form-control col-sm-4" name="code" id="code" placeholder="ชื่อย่อ" value="{{ $adminSend->code }}" readonly>
                     </div>
 
-
-                    <div class="form-group col-xs-12 col-sm-12 col-md-12 my-2">
-                        <label class="col-sm-2">สถานะการขอกู้ :</label>
-                        <input type="text" class="form-control col-sm-10"
-                        {{-- value="{{ $adminSend->recovery_status }}"  --}}
-                        @if( $adminSend->recovery_status == 0)
-                            value="ยังไม่ได้ตรวจเอกสาร"
-                        @endif
-                            value="ตรวจเอกสารแล้ว"
-                        readonly>
-                    </div>
 
                     <div class="form-group col-xs-12 col-sm-12 col-md-12 my-2">
                         <label class="col-sm-2">คำอธิบาย :<nav style="color: red">*</nav></label>
                         {{-- <input type="text" class="form-control col-sm-10" name="description" id="description" placeholder="คำอธิบาย" value="{{ $adminSend->description }}" > --}}
-                        <div class = "col-sm-5">
+                        <div class = "col-sm-4">
                             <select class="form-control" name="description">
                                 @if($adminSend->description == 0)
                                     <option value="0">สถานะปัจจุบัน: ยังไม่ได้ตรวจ</option>
@@ -112,6 +101,19 @@
                                 @endif
                             </select>
                         </div>
+
+                        <label class="col-sm-2">สถานะการขอกู้ :</label>
+                        <input type="text" class="form-control col-sm-4"
+                        {{-- value="{{ $adminSend->recovery_status }}"  --}}
+                        @if( $adminSend->recovery_status == 0)
+                            value="ยังไม่ได้ตรวจเอกสาร"
+                        @endif
+                            value="ตรวจเอกสารแล้ว"
+                        readonly>
+                    </div>
+
+                    <div class="form-group col-xs-12 col-sm-12 col-md-12 my-2">
+
                     </div>
 
                 </div>

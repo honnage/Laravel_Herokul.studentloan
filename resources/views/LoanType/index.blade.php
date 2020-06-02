@@ -4,20 +4,15 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
-
             <div class="card-header">ประเภทการกู้ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                {{-- <a style="float:right " class="btn btn-success mr-2 "href="{{ route('LoanType.create') }}" >เพิ่มข้อมูล</a><br> --}}
                 <a class="btn btn-success mr-2 "href="{{ route('LoanType.create') }}" >เพิ่มข้อมูล</a><br>
-
             </div>
-
         @csrf
-
             <body {{--class="text-center"--}} style="">
 
             <table class="table" border="0">
                 <thead>
-                    <th><center>#ID</center></th>
+                    {{-- <th><center>#ID</center></th> --}}
                     <th><center>ประเภท</center></th>
                     <th><center>ชื่อย่อ</center></th>
                     <th><center>ค่าครองชีพ</center></th>
@@ -26,10 +21,10 @@
                 @foreach($loantype as $type)
                 <tbody>
                 <tr>
-                    <td>{{ $type->id}}</td>
+                    {{-- <td>{{ $type->id}}</td> --}}
                     <td>{{ $type->type }}</td>
                     <td><center>{{ $type->code }}</center></td>
-                    <td>{{ number_format($type->salary) }} / เดือน</td>
+                    <td><center>{{ number_format($type->salary) }} / เดือน</center></td>
                     <td>
                         <center>
                         <form action="{{ route('LoanType.destroy',$type->id)}}" method="POST">
