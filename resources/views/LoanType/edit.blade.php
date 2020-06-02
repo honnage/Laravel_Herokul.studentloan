@@ -10,7 +10,7 @@
         <div class="card">
 
         <div class="table-responsive">
-            <div class="card-header">เพื่มประเภทกิจกรรม &nbsp;&nbsp;
+            <div class="card-header">แก้ไขประเภทการกู้เงิน &nbsp;&nbsp;
                 <a href="{{ route('LoanType.index') }}"> หัวข้อประเภทงานทั้งหมด </a>&nbsp;&nbsp;
             </div>
 
@@ -19,7 +19,7 @@
                 @method('PUT')
                 <div class="form-inline">
                     <div class="form-group col-xs-12 col-sm-12 col-md-12 my-3">
-                        <label class="col-sm-2">&nbsp; ประเภทกิจกรรม <label style="color:red;"> * </label></label>
+                        <label class="col-sm-2">&nbsp; ประเภทการกู้เงิน <label style="color:red;"> * </label></label>
                         <input type="text" class="form-control col-sm-10" name="type" id="type" placeholder="เช่น กองทุนเงินให้กู้ยืมเพื่อการศึกษา  " value="{{ $type->type }}">
                     </div>
 

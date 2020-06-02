@@ -41,12 +41,12 @@ class LoanTypeController extends Controller
         $loantype = new LoanTypeModel;
 
         $request->validate([
-            'code'=>'required',
             'type'=>'required',
+            'code'=>'required',
             'salary'=>'required',
         ]);
-        $loantype->code = $request->code;
         $loantype->type = $request->type;
+        $loantype->code = $request->code;
         $loantype->salary = $request->salary;
 
         $loantype->save();

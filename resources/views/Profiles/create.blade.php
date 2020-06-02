@@ -22,15 +22,16 @@
 
                     <div class="form-group col-xs-12 col-sm-12 col-md-12 my-2">
                         <label class="col-sm-2">&nbsp; ชื่อ :<label style="color:red;"> * </label></label>
-                        <input type="text" class="form-control col-sm-10" name="fname" id="fname" placeholder="ชื่อจริง">
-                    </div>
+                        <input type="text" class="form-control col-sm-4" name="fname" id="fname" placeholder="ชื่อจริง">
 
-                    <div class="form-group col-xs-12 col-sm-12 col-md-12 my-2">
                         <label class="col-sm-2">&nbsp; นามสุกล :<label style="color:red;"> * </label></label>
-                        <input type="text" class="form-control col-sm-10" name="lname" id="lname" placeholder="นามสกุล">
+                        <input type="text" class="form-control col-sm-4" name="lname" id="lname" placeholder="นามสกุล">
                     </div>
 
                     <div class="form-group col-xs-12 col-sm-12 col-md-12 my-2">
+                        <label class="col-sm-2">&nbsp; วันเกิด :<label style="color:red;"> * </label></label>
+                        <input type="date" class="form-control col-sm-4" name="birthdate" id="birthdate" placeholder="วันเกิด">
+
                         <label class="col-sm-2">&nbsp; เพศ :<label style="color:red;"> * </label></label>
                         <div class = "col-sm-4">
                             <select class="form-control " name="gender">
@@ -39,8 +40,7 @@
                                 <option value="หญิง">เพศหญิง</option>
                             </select>
                         </div>
-                        <label class="col-sm-2">&nbsp; วันเกิด :<label style="color:red;"> * </label></label>
-                        <input type="date" class="form-control col-sm-4" name="birthdate" id="birthdate" placeholder="วันเกิด">
+
                     </div>
 
                     <div class="form-group col-xs-12 col-sm-12 col-md-12 my-2">

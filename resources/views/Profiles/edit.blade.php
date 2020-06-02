@@ -26,15 +26,16 @@
 
                     <div class="form-group col-xs-12 col-sm-12 col-md-12 my-2">
                         <label class="col-sm-2">&nbsp; ชื่อ :<label style="color:red;"> * </label></label>
-                        <input type="text" class="form-control col-sm-10" name="fname" id="fname" placeholder="ชื่อจริง" value=" {{ $profile->fname }}">
-                    </div>
+                        <input type="text" class="form-control col-sm-4" name="fname" id="fname" placeholder="ชื่อจริง" value=" {{ $profile->fname }}">
 
-                    <div class="form-group col-xs-12 col-sm-12 col-md-12 my-2">
                         <label class="col-sm-2">&nbsp; นามสุกล :<label style="color:red;"> * </label></label>
-                        <input type="text" class="form-control col-sm-10" name="lname" id="lname" placeholder="นามสกุล" value=" {{ $profile->lname }}">
+                        <input type="text" class="form-control col-sm-4" name="lname" id="lname" placeholder="นามสกุล" value=" {{ $profile->lname }}">
                     </div>
 
                     <div class="form-group col-xs-12 col-sm-12 col-md-12 my-2">
+                        <label class="col-sm-2">&nbsp; วันเกิด :<label style="color:red;"> * </label></label>
+                        <input type="date" class="form-control col-sm-4" name="birthdate" id="birthdate"  value="{{$profile->birthdate}}" >
+
                         <label class="col-sm-2">&nbsp; เพศ :<label style="color:red;"> * </label></label>
                         <div class = "col-sm-4">
                             <select class="form-control " name="gender">
@@ -43,19 +44,14 @@
                                 <option value="เพศหญิง">เพศหญิง</option>
                             </select>
                         </div>
-
-                        <label class="col-sm-2">&nbsp; วันเกิด :<label style="color:red;"> * </label></label>
-                        <input type="date" class="form-control col-sm-4" name="birthdate" id="birthdate"  value="{{$profile->birthdate}}" >
                     </div>
 
                     <div class="form-group col-xs-12 col-sm-12 col-md-12 my-2">
                         <label class="col-sm-2">&nbsp; เบอร์โทรศัพท์ :<label style="color:red;"> * </label></label>
-                        <input type="text" class="form-control col-sm-10" name="phone" id="phone" placeholder="เบอร์โทรศัพท์" value=" {{ $profile->phone }}">
-                    </div>
+                        <input type="text" class="form-control col-sm-4" name="phone" id="phone" placeholder="เบอร์โทรศัพท์" value=" {{ $profile->phone }}">
 
-                    <div class="form-group col-xs-12 col-sm-12 col-md-12 my-2">
                         <label class="col-sm-2">&nbsp; E-mail :<label style="color:red;"> * </label></label>
-                        <input type="text" class="form-control col-sm-10" name="email" id="email" placeholder="email" value=" {{ $profile->email }}">
+                        <input type="text" class="form-control col-sm-4" name="email" id="email" placeholder="email" value=" {{ $profile->email }}">
                     </div>
 
                     <div class="form-group col-xs-12 col-sm-12 col-md-12 my-2">

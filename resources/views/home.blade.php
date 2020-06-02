@@ -38,7 +38,7 @@
                         <a href="{{Auth::user()->id}}" onclick="return confirm('คุณยังไม่ได้เพื่มข้อมูลส่วนตัว \nกรุณาเพื่มข้อมูลส่วนตัวก่อน ไม่งั้นไม่สามารถทำการ ส่งเอกสารได้')" class="btn btn-danger">ส่งเอกสาร</a>
                     @else
                         {{-- <a href="{{ route('SendDocument.create') }} " class="btn btn-outline-secondary" style="background: #AEC33A; color: white ">ส่งเอกสาร</a> --}}
-                        <a href="" class="btn btn-outline-secondary" style="background: #AEC33A; color: white ">ส่งเอกสาร</a>
+                        <a href="SendDocuments/create" class="btn btn-outline-secondary" style="background: #AEC33A; color: white ">ส่งเอกสาร</a>
                     @endif
 
 
