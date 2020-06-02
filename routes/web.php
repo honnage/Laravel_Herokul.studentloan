@@ -16,6 +16,8 @@ Route::middleware(['auth','StatusIS'])->group(function(){
     Route::resource('/LoanType', 'LoanTypeController');
 
     Route::get('SendDocuments/dashboard','SendDocumentController@dashboard');
+    Route::get('SendDocuments/edit/{id}','SendDocumentController@edit');
+    Route::post('SendDocuments/update/{id}','SendDocumentController@update');
 });
 
 
@@ -24,8 +26,7 @@ Route::middleware(['auth'])->group(function(){
 
     Route::get('SendDocuments/create','SendDocumentController@create');
     Route::post('SendDocuments/store','SendDocumentController@store');
-    Route::get('SendDocuments/edit/{id}','SendDocumentController@edit');
-    Route::post('SendDocuments/update/{id}','SendDocumentController@update');
+
 });
 
 
