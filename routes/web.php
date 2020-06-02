@@ -15,12 +15,19 @@ use Illuminate\Support\Facades\Route;
 Route::middleware(['auth','StatusIS'])->group(function(){
     Route::resource('/LoanType', 'LoanTypeController');
 
-    // Route::resource('/SendDocuments', 'SendDocumentController');
-
     Route::get('SendDocuments/dashboard','SendDocumentController@dashboard');
 });
 
-Route::resource('/Profiles', 'ProfileController');
+
+Route::middleware(['auth'])->group(function(){
+    Route::resource('/Profiles', 'ProfileController');
+
+    Route::get('SendDocuments/create','SendDocumentController@create');
+    Route::post('SendDocuments/store','SendDocumentController@store');
+    Route::get('SendDocuments/edit/{id}','SendDocumentController@edit');
+    Route::post('SendDocuments/update/{id}','SendDocumentController@update');
+});
+
 
 Route::get('/', function () {
     return view('welcome');
