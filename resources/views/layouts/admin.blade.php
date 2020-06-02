@@ -36,6 +36,21 @@
                     <ul class="navbar-nav mr-auto">
                         <ul class="navbar-nav mr-auto">
                             <li class="nav-item">
+                                <a class="nav-link" href="">{{ ('ตรวจเอกสาร') }}</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="">{{ ('ธุรกรรม') }}</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('LoanType.index') }}">{{ ('ประเภทการกู้') }}</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="">{{ ('ข้อมูลการกู้') }}</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="">{{ ('ข้อมูลผู้ใช้ในระบบ') }}</a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link" href="/home">{{ ('โปรไฟล์') }}</a>
                             </li>
                         </ul>

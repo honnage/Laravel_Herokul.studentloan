@@ -24,7 +24,7 @@
                     @endif
 
                     @if(Auth::user()->checkIsStatus() || Auth::user()->id == "1")
-                        <a href="" class="btn btn-primary col-sm-2">Management</a>
+                        <a href="SendDocuments/dashboard" class="btn btn-primary col-sm-2">Management</a>
                     @endif
 
                     @if( sizeof($profiles) == 1  )

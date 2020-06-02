@@ -14,6 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 Route::middleware(['auth','StatusIS'])->group(function(){
     Route::resource('/LoanType', 'LoanTypeController');
+
+    // Route::resource('/SendDocuments', 'SendDocumentController');
+
+    Route::get('SendDocuments/dashboard','SendDocumentController@dashboard');
 });
 
 Route::resource('/Profiles', 'ProfileController');
