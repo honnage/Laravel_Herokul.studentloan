@@ -93,47 +93,47 @@
                         </div>
 
                         <label class="col-sm-2">&nbsp; ปีการศึกษา :<label style="color:red;"> * </label></label>
-                        <input type="text" class="form-control col-sm-4" name="school_year" id="school_year" placeholder="ปีการศึกษา">
+                        <input type="text" class="form-control col-sm-4" name="year" id="year" placeholder="ปีการศึกษา">
                     </div>
 
                     <div class="form-group col-xs-12 col-sm-12 col-md-12 my-2">
                         <label class="col-sm-2">&nbsp; ชั้นปี :<label style="color:red;"> * </label></label>
-                        {{-- <input type="text" class="form-control col-sm-10" name="year" id="year" placeholder="เช่น 1"> --}}
+                        {{-- <input type="text" class="form-control col-sm-10" name="school_year" id="school_year" placeholder="เช่น 1"> --}}
                         <div class = "col-sm-10">
                             <div class="form-group col-xs-12 col-sm-12 col-md-12 my-2">
                                 <div class = "">
                                     <div class="form-inline">
-                                        <input type="radio" id="year" name="year" value="1"> &nbsp;&nbsp;
+                                        <input type="radio" id="school_year" name="school_year" value="1"> &nbsp;&nbsp;
                                         <label for="1">ปี 1</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     </div>
                                 </div>
                                 <div class = "">
                                     <div class="form-inline">
-                                        <input type="radio" id="year" name="year" value="2"> &nbsp;&nbsp;
+                                        <input type="radio" id="school_year" name="school_year" value="2"> &nbsp;&nbsp;
                                         <label for="2">ปี 2</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     </div>
                                 </div>
                                 <div class = "">
                                     <div class="form-inline">
-                                        <input type="radio" id="year" name="year" value="3"> &nbsp;&nbsp;
+                                        <input type="radio" id="school_year" name="school_year" value="3"> &nbsp;&nbsp;
                                         <label for="3">ปี 3</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     </div>
                                 </div>
                                 <div class = "">
                                     <div class="form-inline">
-                                        <input type="radio" id="year" name="year" value="4"> &nbsp;&nbsp;
+                                        <input type="radio" id="school_year" name="school_year" value="4"> &nbsp;&nbsp;
                                         <label for="4">ปี 4</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     </div>
                                 </div>
                                 <div class = "">
                                     <div class="form-inline">
-                                        <input type="radio" id="year" name="year" value="5"> &nbsp;&nbsp;
+                                        <input type="radio" id="school_year" name="school_year" value="5"> &nbsp;&nbsp;
                                         <label for="5">ปี 5</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     </div>
                                 </div>
                                 <div class = "">
                                     <div class="form-inline">
-                                        <input type="radio" id="year" name="year" value="6"> &nbsp;&nbsp;
+                                        <input type="radio" id="school_year" name="school_year" value="6"> &nbsp;&nbsp;
                                         <label for="6">ปี 6</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     </div>
                                 </div>

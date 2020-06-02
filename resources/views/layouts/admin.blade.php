@@ -36,10 +36,10 @@
                     <ul class="navbar-nav mr-auto">
                         <ul class="navbar-nav mr-auto">
                             <li class="nav-item">
-                                <a class="nav-link" href="">{{ ('ตรวจเอกสาร') }}</a>
+                                <a class="nav-link" href="/SendDocuments/dashboard">{{ ('ตรวจเอกสาร') }}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="">{{ ('ธุรกรรม') }}</a>
+                                <a class="nav-link" href="/Accounts/dashboard">{{ ('ธุรกรรม') }}</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('LoanType.index') }}">{{ ('ประเภทการกู้') }}</a>

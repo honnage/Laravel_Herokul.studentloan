@@ -105,9 +105,9 @@
                                     <option value="1">แก้ไขเป็น: ไม่ผ่าน</option>
                                 @elseif($adminSend->description == 1)
                                     <option value="1">สถานะปัจจุบัน: ไม่ผ่าน</option>
-                                    <option value="1">แก้ไขเป็น: ผ่าน</option>
+                                    <option value="2">แก้ไขเป็น: ผ่าน</option>
                                 @elseif($adminSend->description == 2)
-                                    <option value="1">สถานะปัจจุบัน: ผ่าน</option>
+                                    <option value="2">สถานะปัจจุบัน: ผ่าน</option>
                                     <option value="1">แก้ไขเป็น: ไม่ผ่าน</option>
                                 @endif
                             </select>

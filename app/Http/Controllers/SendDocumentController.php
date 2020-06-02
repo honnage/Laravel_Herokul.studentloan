@@ -63,7 +63,7 @@ class SendDocumentController extends Controller
         $sendDocument->document_status = 0; //ส่งเอกสาร
         $sendDocument->description = 0; //กำลังรอการตรวจสอบ
         $sendDocument->type_id = $request->type_id;
-        $sendDocument->SendDocuments_id = "Y".$sendDocument->school_year."T".$sendDocument->term."U".$sendDocument->profile_id ;
+        $sendDocument->SendDocuments_id = "Y".$sendDocument->year."L".$sendDocument->school_year."T".$sendDocument->term."S". $sendDocument->recovery_status."U".$sendDocument->profile_id ;
         $sendDocument->save();
 
         //เพื่มข้อมูลตาราง Accounts
@@ -116,12 +116,12 @@ class SendDocumentController extends Controller
         DB::table('send_documents')
         ->where('send_documents.SendDocuments_id','=',$id)
         ->update([
-        'recovery_status' => 1,
         'description' => $request->description,
+        'document_status' => 1,
         // 'SendDocuments_id' => $request->SendDocuments_id,
         ]);
 
-        DB::table('Accounts')
+        DB::table('accounts')
         ->where('accounts.SendDocuments_id','=',$id)
         ->update([
         'details' => $request->description,

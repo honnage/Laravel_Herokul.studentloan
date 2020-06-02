@@ -18,6 +18,10 @@ Route::middleware(['auth','StatusIS'])->group(function(){
     Route::get('SendDocuments/dashboard','SendDocumentController@dashboard');
     Route::get('SendDocuments/edit/{id}','SendDocumentController@edit');
     Route::post('SendDocuments/update/{id}','SendDocumentController@update');
+
+    Route::get('Accounts/dashboard','AccountController@dashboard');
+    Route::get('Accounts/edit/{id}','AccountController@edit');
+    Route::post('Accounts/update/{id}','AccountController@update');
 });
 
 
