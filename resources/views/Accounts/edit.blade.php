@@ -115,7 +115,6 @@
                         <label class="col-sm-3">ค่าครองชีพ :</label>
                         <input type="text" class="form-control col-sm-1" name="salary" id="salary" placeholder="เช่น 20000" value="{{ $account->salary }}"  readonly>
                         <label class="col-sm-1">/ เดือน</label>
-
                     </div>
 
                     <div class="form-group col-xs-12 col-sm-12 col-md-12 my-2">
@@ -123,7 +122,8 @@
                         <input type="text" class="form-control col-sm-3" name="TuitionFee" id="TuitionFee" placeholder="เช่น 20000" value="{{ number_format($account->TuitionFee) }}" >
 
                         <label class="col-sm-3">ค่าครองชีพรวม :</label>
-                        <input type="text" class="form-control col-sm-2" name="cost_living" id="cost_living" placeholder="เช่น 20000" value="{{ number_format($account->cost_living) }} = {{ number_format($account->salary)}} x {{ $account->Duration }}"  readonly>
+                        {{-- <input type="text" class="form-control col-sm-2" name="cost_living" id="cost_living" placeholder="เช่น 20000" value="{{ number_format($account->cost_living) }} = {{ number_format($account->salary)}} x {{ $account->Duration }}"  readonly> --}}
+                        <input type="text" class="form-control col-sm-2" name="cost_living" id="cost_living" placeholder="เช่น 20000" value="{{ number_format($account->cost_living) }}"  readonly>
                     </div>
 
                     <div class="form-group col-xs-12 col-sm-12 col-md-12 my-2">

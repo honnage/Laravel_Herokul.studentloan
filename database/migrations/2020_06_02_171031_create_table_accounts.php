@@ -20,6 +20,7 @@ class CreateTableAccounts extends Migration
             $table->integer('Duration');//ระยะเวลากู้
             $table->integer('cost_living');
             $table->string('details');
+            $table->integer('total');
             $table->integer('profile_id');
             $table->integer('type_id');
             $table->string('SendDocuments_id');

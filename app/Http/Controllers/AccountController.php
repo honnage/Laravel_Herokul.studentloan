@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\LoanTypeModel;
+use App\AccountModel;
 
 class AccountController extends Controller
 {
@@ -36,15 +37,15 @@ class AccountController extends Controller
 
     public function update(Request $request, $id)
     {
-        $loan_types = LoanTypeModel::get();
+        // $loan_types = LoanTypeModel::get();
 
         $request->validate([
             'TuitionFee' => 'required',
             'Other' => 'required',
             'Duration' => 'required',
             'salary' => 'required',
+            'cost_living' => 'required',
         ]);
-
         DB::table('accounts')
         ->where('accounts.SendDocuments_id','=',$id)
         ->update([
@@ -52,8 +53,16 @@ class AccountController extends Controller
         'TuitionFee' => $request->TuitionFee,
         'Other' => $request->Other,
         'cost_living' => $request->Duration * $request->salary,
-
         ]);
+
+        // $Accounts = AccountModel::find($id);
+        // $Accounts->Duration = $request->Duration;
+        // $Accounts->TuitionFee = $request->TuitionFee;
+        // $Accounts->Other = $request->Other;
+        // $Accounts->cost_living = $request->Duration * $request->salary;
+        // $Accounts->total = $request->TuitionFee + $request->Other + $Accounts->cost_living;
+
+        // $Accounts->save();
         // dd($request);
         return redirect('/Accounts/dashboard');
     }
