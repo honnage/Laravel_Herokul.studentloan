@@ -33,7 +33,9 @@
 
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-danger" >DELETE</button>
+                                @if(Auth::user()->StatusID == 2 || Auth::user()->id == 1)
+                                    <button type="submit" class="btn btn-danger" >DELETE</button>
+                                @endif
                             </form>
                             </center>
                         </td>
