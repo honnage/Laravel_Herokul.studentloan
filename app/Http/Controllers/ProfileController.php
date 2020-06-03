@@ -90,7 +90,7 @@ class ProfileController extends Controller
 
         $Profiles = DB::table('profiles')
         ->join('accounts','accounts.profile_id','=','profiles.user_id')
-        ->select('*','profiles.id as ProfileID',DB::raw('sum(accounts.TuitionFee + accounts.Other + accounts.cost_living) as total'))
+        ->select('*',DB::raw('sum(accounts.TuitionFee + accounts.Other + accounts.cost_living) as total'))
         // ->where('profiles.user_id' ,'=','Accounts.profile_id')
         // ->groupBy('profiles.id')
         ->get();
