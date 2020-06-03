@@ -26,19 +26,19 @@
                     @foreach($Profiles as $profile)
                     <tbody>
                     <tr>
-                        <td>{{ $profile->ProfileID}}</td>
+                        {{-- <td>{{ $profile->ProfileID}}</td> --}}
                         {{-- <td>{{ $profile->SendDocuments_id }}</td> --}}
                         <td>{{ $profile->fname }}</td>
                         <td>{{ $profile->lname }}</td>
                         <td>{{ $profile->phone }}</td>
                         <td>{{ $profile->email }}</td>
                         {{-- <td>{{ $profile->TuitionFee }}</td> --}}
-                        <td>{{ number_format($profile->total) }}</td>
+                        {{-- <td>{{ number_format($profile->total) }}</td> --}}
 
                         <td>
                             <center>
                             @if(sizeof($Profiles) != 0)
-                                <a class="btn btn-success" href="/Accounts/show/{{$profile->ProfileID}}" >SHOW</a>
+                                {{-- <a class="btn btn-success" href="/Accounts/show/{{$profile->ProfileID}}" >SHOW</a> --}}
                             @else
 
                             @endif

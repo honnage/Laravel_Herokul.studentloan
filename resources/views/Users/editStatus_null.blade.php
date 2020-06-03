@@ -28,16 +28,16 @@
                         {{-- <input type="text" class="form-control col-sm-4" name="StatusID" id="StatusID"  value="{{ $user->StatusID }}"> --}}
                         @if(Auth::user()->StatusID == 2 || Auth::user()->id == 1)
                         <select class="form-control col-sm-4" name="StatusID">
-                            @if( $user->id == "1")
+                            @if( $user->id == 1)
                                 <option value="{{$user->StatusID}}">ID 1 สถานะเป็น Admin เสมอ</option>
                                 <option value="1">แก้ไขเป็น: Moderator</option>
                                 <option value="0">แก้ไขเป็น: User</option>
                                 <option value="2">แก้ไขเป็น: Admin</option>
-                            @elseif( $user->StatusID == "0")
+                            @elseif( $user->StatusID ==0)
                                 <option value="{{$user->StatusID}}">ปัจจุบัน: User</option>
                                 <option value="1">แก้ไขเป็น: Moderator</option>
                                 <option value="2">แก้ไขเป็น: Admin</option>
-                            @elseif( $user->StatusID == "1")
+                            @elseif( $user->StatusID == 1)
                                 <option value="{{$user->StatusID}}">ปัจจุบัน: Moderator</option>
                                 <option value="2">แก้ไขเป็น: Admin</option>
                                 <option value="0">แก้ไขเป็น: User</option>
