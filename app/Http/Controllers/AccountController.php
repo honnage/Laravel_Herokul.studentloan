@@ -64,8 +64,8 @@ class AccountController extends Controller
         ->join('send_documents','send_documents.profile_id','=','profiles.user_id')
         ->join('accounts','accounts.SendDocuments_id','=','send_documents.SendDocuments_id')
         ->join('loan_types','loan_types.id','=','send_documents.type_id')
-        ->select('*','Profiles.id as ProfileID',
-                'Profiles.user_id as ProID',
+        ->select('*','profiles.id as ProfileID',
+                'profiles.user_id as ProID',
                 'accounts.SendDocuments_id as AccSD',
                 // DB::raw('sum(accounts.Duration * loan_types.salary) as sumDuration'),
                 DB::raw('sum(accounts.TuitionFee + accounts.Other + accounts.cost_living ) as total'), )
