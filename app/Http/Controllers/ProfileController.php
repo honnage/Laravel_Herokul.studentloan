@@ -87,16 +87,16 @@ class ProfileController extends Controller
     }
 
     public function dashboard(){
+
         $Profiles = DB::table('profiles')
-        ->join('send_documents','send_documents.profile_id','=','profiles.user_id')
-        ->join('accounts','send_documents.SendDocuments_id','=','send_documents.SendDocuments_id')
-        ->join('loan_types','loan_types.id','=','accounts.type_id')
-
-        // ->select('*','accounts.id as AccID','accounts.updated_at as AccountsAt')
-
-        // ->orderBy('accounts.id', 'DESC')
-        ->select('*',)->get();
+        ->join('accounts','accounts.profile_id','=','profiles.user_id')
+        ->select('*','profiles.id as ProfileID',DB::raw('sum(accounts.TuitionFee + accounts.Other + accounts.cost_living) as total'))
+        // ->where('Profiles.user_id' ,'=','Accounts.profile_id')
+        ->groupBy('profiles.id')
+        ->get();
+        // return view('Profiles.index',compact('AdminProfiles'));
         return view('Profiles.dashboard',compact('Profiles'));
+
     }
 
     public function dashboardUser(){

@@ -1,3 +1,4 @@
+
 @extends('layouts.app')
 @section('content')
 @foreach($Profiles as $profile)
@@ -10,10 +11,12 @@
     @if(sizeof($Profiles) != 0)
         <div class="table-responsive">
             <div class="card-header">ข้อมูลการกู้ &nbsp;&nbsp;
-                <a href="{{ route('AdminProfiles.index') }}"> แสดงข้อมูลผู้ใช้ทั้งหมด </a>&nbsp;&nbsp;
+                {{-- <a href="{{ route('AdminProfiles.index') }}"> แสดงข้อมูลผู้ใช้ทั้งหมด </a>&nbsp;&nbsp; --}}
             </div>
 
-            <form action="{{ route('Profiles.update',$profile->user_id) }}" method="post" >
+            <form action="" method="post" >
+                {{-- <form action="{{ route('Profiles.update',$profile->user_id) }}" method="post" > --}}
+
                 {{csrf_field()}}
                 @method('PUT')
                 {{-- {{Auth::user()->id }} --}}
@@ -74,18 +77,45 @@
                             {{-- <td>{{ $profile->AccSD}}</td> --}}
                             <td>{{ $profile->SendDocuments_id }}</td>
                             <td>{{ $profile->code }}</td>
-                            <td>{{ $profile->school_year }} / {{ $profile->term }}</td>
-                            <td>{{ $profile->Duration }} / เดือน</td>
-                            <td>{{ number_format($profile->TuitionFee) }}</td>
-                            <td>{{ number_format($profile->Other) }}</td>
+                            <td><center>{{ $profile->year }} / {{ $profile->term }}</center></td>
+                            <td>
+                                @if($profile->Duration == 0)
+                                    <center><h4><b> - </b></h4></center>
+                                @else
+                                    {{ $profile->Duration }} / เดือน
+                                @endif
+                            </td>
+                            <td>
+                                @if($profile->TuitionFee == 0)
+                                    <center><h4><b> - </b></h4></center>
+                                @else
+                                    {{ number_format($profile->TuitionFee) }}
+                                @endif
+                            </td>
+                            <td>
+                                @if($profile->Other == 0)
+                                    <center><h4><b> - </b></h4></center>
+                                @else
+                                    {{ number_format($profile->Other) }}
+                                @endif
+                            </td>
                             {{-- <td>{{ number_format($profile->sumDuration) }} </td> --}}
-                            <td>{{ number_format($profile->cost_living) }} </td>
-                            <td>{{ number_format($profile->total) }}</td>
+                            <td>
+                                @if($profile->cost_living == 0)
+                                    <center><h4><b> - </b></h4></center>
+                                @else
+                                    {{ number_format($profile->cost_living) }}
+                                @endif
+                            </td>
+                            <td>
+                                @if($profile->total == 0)
+                                    <center><h4><b> - </b></h4></center>
+                                @else
+                                    {{ number_format($profile->total) }}</td>
+                                @endif
                             <td>
                                 <center>
-                                <form action="{{ route('AdminProfiles.destroy',$profile->id)}}" method="POST">
-                                    <a class="btn btn-success" href="{{ route('AdminDetails.show',$profile->AccSD) }}" >SHOW</a>
-                                </form>
+                                <a class="btn btn-success" href="/Accounts/details/{{$profile->SendDocuments_id}}" >SHOW</a>
                                 </center>
                             </td>
                             <?php $sum = $total ?>
@@ -104,7 +134,7 @@
                 <div class="form-inline">
                     <div class="form-group col-xs-12 col-sm-12 col-md-12 my-3">
                         <center>
-                            <a class="btn btn-primary" href="/home" >ย้อนกลับ</a>
+                            <a class="btn btn-primary" href="/Profiles/dashboard" >ย้อนกลับ</a>
                         </center>
                     </div>
                 </div>
@@ -117,7 +147,7 @@
     <div class="form-group col-xs-12 col-sm-12 col-md-12 my-2">
 
        <center><br><h1> ข้อมูลผู้ใช้ระบบของ ID นี้ ยังไม่มีรายการ ลงทะเบียนกู้ </h1>
-        <a class="btn btn-lg btn-primary my-3" href="/home" >ย้อนกลับ</a><br></center>
+        <a class="btn btn-lg btn-primary my-3" href="/Profiles/dashboard" >ย้อนกลับ</a><br></center>
 
     </div>
     @endif

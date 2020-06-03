@@ -47,15 +47,22 @@
                         <input type="text" class="form-control col-sm-2" name="major" id="major" value=" {{ $account->major }}" readonly>
 
                         <label class="col-sm-2">&nbsp; ชั้นปี :</label>
-                        <input type="text" class="form-control col-sm-2" name="year" id="year"  value=" {{ $account->year }}" readonly>
+                        <input type="text" class="form-control col-sm-2" name="year" id="year"  value=" {{ $account->school_year }}" readonly>
                     </div>
 
                     <div class="form-group col-xs-12 col-sm-12 col-md-12 my-2">
                         <label class="col-sm-2">&nbsp; ปีการศึกษา :</label>
-                        <input type="text" class="form-control col-sm-6" name="school_year" id="school_year" placeholder="ปีการศึกษา"  value="{{ $account->school_year }}" readonly>
+                        <input type="text" class="form-control col-sm-6" name="school_year" id="school_year" placeholder="ปีการศึกษา"  value="{{ $account->year }}" readonly>
 
                         <label class="col-sm-2">&nbsp; ภาคเรียน :</label>
-                        <input type="text" class="form-control col-sm-2" name="term" id="term" placeholder="ภาคเรียน" value="{{ $account->term }}" readonly>
+                        <input type="text" class="form-control col-sm-2" name="term" id="term" placeholder="ภาคเรียน"
+                        @if($account->term == 1)
+                            value="ต้น"
+                        @elseif($account->term == 2)
+                            value="ปลาย"
+                        @else
+                            value="ฤดูร้อน"
+                        @endif readonly>
                     </div>
 
                     <div class="form-group col-xs-12 col-sm-12 col-md-12 my-2">
@@ -75,7 +82,12 @@
                         <input type="text" class="form-control col-sm-4" name="type_id" id="type_id" placeholder="ประเภทการกู้" value="{{ $account->type }}" readonly>
 
                         <label class="col-sm-2">สถานะการขอกู้ :</label>
-                        <input type="text" class="form-control col-sm-4" name="recovery_status" id="recovery_status" placeholder="สถานะการขอกู้" value="{{ $account->recovery_status }}" readonly>
+                        <input type="text" class="form-control col-sm-4" name="recovery_status" id="recovery_status"
+                            @if($account->recovery_status == 0)
+                                value="ผู้ขอกู้รายใหม่"
+                            @else
+                                value="ผู้ขอกู้รายเก่า"
+                            @endif readonly>
                     </div>
 
 
@@ -84,7 +96,12 @@
                         <input type="text" class="form-control col-sm-4" name="Duration" id="Duration" placeholder="ระยะเวลาสัญญากู้" value="{{ $account->Duration }} เดือน" readonly>
 
                         <label class="col-sm-2">สถานะการตรวจเอกสาร :</label>
-                        <input type="text" class="form-control col-sm-4" name="description" id="description" placeholder="คำอธิบาย" value="{{ $account->description }}" readonly>
+                        <input type="text" class="form-control col-sm-4" name="description" id="description" placeholder="คำอธิบาย"
+                        @if($account->description == 0)
+                            value="ยังไม่ได้ตรวจเอกสาร"
+                        @else
+                            value="ตรวจเอกสารแล้ว"
+                        @endif readonly>
                     </div>
 
                     <div class="form-group col-xs-12 col-sm-12 col-md-12 my-2">

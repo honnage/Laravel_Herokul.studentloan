@@ -4,33 +4,44 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
-            <div class="card-header">ข้อมูลการส่งเอกสาร&nbsp;&nbsp;&nbsp;</div>
+
+            <div class="card-header">
+                ข้อมูลผู้ใช้ &nbsp;&nbsp;&nbsp;
+            </div>
+
         @csrf
             <body {{--class="text-center"--}} style="">
             <table class="table" border="0">
                 <thead>
-                    {{-- <th><center>#ID</center></th> --}}
-                    <th><center>ID</center></th>
+                    <th><center>#ID</center></th>
+                    {{-- <th><center>รหัสรายการ</center></th> --}}
+                    {{-- <th><center>profile_id</center></th> --}}
                     <th><center>ชื่อ</center></th>
                     <th><center>นามสุกล</center></th>
-                    <th><center>เพศ</center></th>
-                    <th><center>E-mail</center></th>
-                    <th><center>เบอร์โทรศัพท์</center></th>
+                    <th><center>เบอร์โทร</center></th>
+                    <th><center>Email</center></th>
+                    <th><center>ยอดเงินรวม</center></th>
                     <th><center>ดำเนินการ</center></th>
                 </thead>
                 @foreach($Profiles as $profile)
                 <tbody>
                 <tr>
-                    <td>{{ $profile->id}}</td>
-                    <td>{{ $profile->fname}}</td>
+                    <td>{{ $profile->ProfileID}}</td>
+                     {{-- <td>{{ $profile->SendDocuments_id }}</td> --}}
+                    <td>{{ $profile->fname }}</td>
                     <td>{{ $profile->lname }}</td>
-                    <td>{{ $profile->gender }}</td>
-                    <td><center>{{ $profile->email }}</center></td>
-                    <td><center>{{ $profile->phone }}</center></td>
+                    <td>{{ $profile->phone }}</td>
+                    <td>{{ $profile->email }}</td>
+                    {{-- <td>{{ $profile->TuitionFee }}</td> --}}
+                    <td>{{ number_format($profile->total) }}</td>
 
                     <td>
                         <center>
-                        {{-- <a class="btn btn-warning" href="/SendDocuments/edit/{{$send->SendID}}" >EDIT</a> --}}
+                        @if(sizeof($Profiles) != 0)
+                            <a class="btn btn-success" href="/Accounts/show/{{$profile->ProfileID}}" >SHOW</a>
+                        @else
+
+                        @endif
                         </center>
                     </td>
                 </tr>

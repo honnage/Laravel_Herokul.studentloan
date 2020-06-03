@@ -28,7 +28,7 @@
                     <td>
                         <center>
                         <form action="{{ route('LoanType.destroy',$type->id)}}" method="POST">
-                            <a class="btn btn-warning" href="{{ route('LoanType.edit',$type->id) }}" >EDIT</a>
+                            <a class="btn btn-warning" href="" >EDIT</a>
 
                             @csrf
                             @method('DELETE')

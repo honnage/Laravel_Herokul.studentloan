@@ -58,4 +58,33 @@ class AccountController extends Controller
         return redirect('/Accounts/dashboard');
     }
 
+    public function show($id)
+    {
+        $Profiles = DB::table('profiles')
+        ->join('send_documents','send_documents.profile_id','=','profiles.user_id')
+        ->join('accounts','accounts.SendDocuments_id','=','send_documents.SendDocuments_id')
+        ->join('loan_types','loan_types.id','=','send_documents.type_id')
+        ->select('*','Profiles.id as ProfileID',
+                'Profiles.user_id as ProID',
+                'accounts.SendDocuments_id as AccSD',
+                // DB::raw('sum(accounts.Duration * loan_types.salary) as sumDuration'),
+                DB::raw('sum(accounts.TuitionFee + accounts.Other + accounts.cost_living ) as total'), )
+        ->where('profiles.user_id' ,'=',$id)
+        ->orderBy('accounts.id', 'DESC')
+        ->groupBy('accounts.SendDocuments_id')
+
+        ->get();
+        return view('Accounts.show',compact('Profiles'));
+    }
+
+    public function details($id){
+        $details = DB::table('send_documents')
+        ->join('loan_types','loan_types.id','=','send_documents.type_id')
+        ->select('*' )
+        ->where('send_documents.SendDocuments_id' ,'=',$id)
+        ->get();
+        return view('Accounts.details',compact('details'));
+    }
+
+
 }

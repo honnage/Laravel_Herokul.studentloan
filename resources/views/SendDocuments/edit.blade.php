@@ -71,7 +71,14 @@
                         <input type="text" class="form-control col-sm-4" name="school_year" id="school_year" placeholder="ปีการศึกษา"  value="{{ $adminSend->year }}" readonly>
 
                         <label class="col-sm-2">&nbsp; ภาคเรียน :</label>
-                        <input type="text" class="form-control col-sm-4" name="term" id="term" placeholder="ภาคเรียน" value="{{ $adminSend->term }}" readonly>
+                        <input type="text" class="form-control col-sm-4" name="term" id="term" placeholder="ภาคเรียน"
+                        @if($adminSend->term == 1)
+                            value="ต้น"
+                        @elseif($adminSend->term == 2)
+                            value="ปลาย"
+                        @else
+                            value="ฤดูร้อน"
+                        @endif readonly>
                     </div>
 
                     <div class="form-group col-xs-12 col-sm-12 col-md-12 my-2">

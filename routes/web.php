@@ -22,14 +22,15 @@ Route::middleware(['auth','StatusIS'])->group(function(){
     Route::get('Accounts/dashboard','AccountController@dashboard');
     Route::get('Accounts/edit/{id}','AccountController@edit');
     Route::post('Accounts/update/{id}','AccountController@update');
+    Route::get('Accounts/show/{id}','AccountController@show');
+    Route::get('Accounts/details/{id}','AccountController@details');
+
 
     Route::get('Profiles/dashboard','ProfileController@dashboard');
     Route::get('Profiles/dashboardUser','ProfileController@dashboardUser');
 
     Route::get('User/editStatus/{id}','UserController@editStatus');
     Route::post('User/update/{id}','UserController@update');
-
-
 
 });
 
