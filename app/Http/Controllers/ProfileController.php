@@ -91,10 +91,9 @@ class ProfileController extends Controller
         $Profiles = DB::table('profiles')
         ->join('accounts','accounts.profile_id','=','profiles.user_id')
         // ->select('*','profiles.id as ProfileID',DB::raw('sum(accounts.TuitionFee + accounts.Other + accounts.cost_living) as total'))
-        // ->select('*','profiles.id as ProfileID',)
 
         // ->where('profiles.user_id' ,'=','Accounts.profile_id')
-        ->groupBy('profiles.id')
+        // ->groupBy('profiles.id')
         ->get();
         // return view('Profiles.index',compact('AdminProfiles'));
         return view('Profiles.dashboard',compact('Profiles'));

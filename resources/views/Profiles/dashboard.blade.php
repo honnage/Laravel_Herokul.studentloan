@@ -20,13 +20,13 @@
                         <th><center>นามสุกล</center></th>
                         <th><center>เบอร์โทร</center></th>
                         <th><center>Email</center></th>
-                        <th><center>ยอดเงินรวม</center></th>
+                        {{-- <th><center>ยอดเงินรวม</center></th> --}}
                         <th><center>ดำเนินการ</center></th>
                     </thead>
                     @foreach($Profiles as $profile)
                     <tbody>
                     <tr>
-                        {{-- <td>{{ $profile->ProfileID}}</td> --}}
+                        <td>{{ $profile->id}}</td>
                         {{-- <td>{{ $profile->SendDocuments_id }}</td> --}}
                         <td>{{ $profile->fname }}</td>
                         <td>{{ $profile->lname }}</td>
@@ -38,7 +38,7 @@
                         <td>
                             <center>
                             @if(sizeof($Profiles) != 0)
-                                {{-- <a class="btn btn-success" href="/Accounts/show/{{$profile->ProfileID}}" >SHOW</a> --}}
+                                <a class="btn btn-success" href="/Accounts/show/{{$profile->id}}" >SHOW</a>
                             @else
 
                             @endif
