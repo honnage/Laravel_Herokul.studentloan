@@ -4,46 +4,48 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
-            <div class="card-header">ข้อมูลการส่งเอกสาร&nbsp;&nbsp;&nbsp;</div>
-        @csrf
-            <body {{--class="text-center"--}} style="">
-            <table class="table" border="0">
-                <thead>
-                    <th><center>ID</center></th>
-                    <th><center>สถานะ</center></th>
-                    <th><center>Email</center></th>
-                    <th><center>ดำเนินการ</center></th>
-                </thead>
-                @foreach($users as $user)
-                <tbody>
-                <tr>
-                    <td>{{ $user->id}}</td>
-                    <td>
-                        {{-- <center>{{ $user->StatusID }}</center> --}}
-                        @if($user->id == "1")
-                            Admin
-                        @elseif( $user->StatusID == 2)
-                            Admin
-                        @elseif( $user->StatusID == 1)
-                            Moderator
-                        @else
-                            User
-                        @endif
-                    </td>
-                    <td>{{ $user->email }}</td>
-                    <td>
-                        <center>
-                        <a href="/User/editStatus/{{$user->id}}" class="btn btn-success">แสดงข้อมูล</a>
-                        </center>
-                    </td>
-                </tr>
-                @endforeach
-                </tbody>
-            </table>
+            <div class="card">
+                <div class="card-header">ข้อมูลการส่งเอกสาร&nbsp;&nbsp;&nbsp;</div>
+                @csrf
+                <body {{--class="text-center"--}} style="">
+                <table class="table " border="0">
+                    <thead class="thead-dark">
+                        <th><center>ID</center></th>
+                        <th><center>สถานะ</center></th>
+                        <th><center>Email</center></th>
+                        <th><center>ดำเนินการ</center></th>
+                    </thead>
+                    @foreach($users as $user)
+                    <tbody>
+                    <tr>
+                        <td>{{ $user->id}}</td>
+                        <td>
+                            {{-- <center>{{ $user->StatusID }}</center> --}}
+                            @if($user->id == "1")
+                                Admin
+                            @elseif( $user->StatusID == 2)
+                                Admin
+                            @elseif( $user->StatusID == 1)
+                                Moderator
+                            @else
+                                User
+                            @endif
+                        </td>
+                        <td>{{ $user->email }}</td>
+                        <td>
+                            <center>
+                            <a href="/User/editStatus/{{$user->id}}" class="btn btn-success">แสดงข้อมูล</a>
+                            </center>
+                        </td>
+                    </tr>
+                    @endforeach
+                    </tbody>
+                </table>
 
-            </body>
+                </body>
+                </div>
+            </div>
         </div>
     </div>
-</div>
 </div>
 @endsection

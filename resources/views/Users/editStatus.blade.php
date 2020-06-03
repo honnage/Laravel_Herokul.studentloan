@@ -9,9 +9,7 @@
         <div class="card">
 
         <div class="table-responsive">
-            <div class="card-header">แก้ไขสถานะ &nbsp;&nbsp;
-                <a href=""> หัวข้อประเภทงานทั้งหมด </a>&nbsp;&nbsp;
-            </div>
+            <div class="card-header">แก้ไขสถานะ &nbsp;&nbsp;</div>
 
             <form action="/User/update/{{$users->id}}" method="post" >
                 {{csrf_field()}}
