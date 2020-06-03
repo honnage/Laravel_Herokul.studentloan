@@ -26,7 +26,9 @@ Route::middleware(['auth','StatusIS'])->group(function(){
     Route::get('Profiles/dashboard','ProfileController@dashboard');
     Route::get('Profiles/dashboardUser','ProfileController@dashboardUser');
 
-    // Route::get('Profiles/editStatusUser/{id}','ProfileController@editStatusUser');
+    Route::get('User/editStatus/{id}','UserController@editStatus');
+    Route::post('User/update/{id}','UserController@update');
+
 
 
 });

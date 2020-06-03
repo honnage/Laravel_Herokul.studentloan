@@ -18,11 +18,22 @@
                 <tbody>
                 <tr>
                     <td>{{ $user->id}}</td>
-                    <td><center>{{ $user->StatusID }}</center></td>
+                    <td>
+                        {{-- <center>{{ $user->StatusID }}</center> --}}
+                        @if($user->id == "1")
+                            Admin
+                        @elseif( $user->StatusID == 2)
+                            Admin
+                        @elseif( $user->StatusID == 1)
+                            Moderator
+                        @else
+                            User
+                        @endif
+                    </td>
                     <td>{{ $user->email }}</td>
                     <td>
                         <center>
-                        {{-- <a href="/Profiles/editStatusUser/{{$user->id}}" class="btn btn-success">แสดงข้อมูล</a> --}}
+                        <a href="/User/editStatus/{{$user->id}}" class="btn btn-success">แสดงข้อมูล</a>
                         </center>
                     </td>
                 </tr>

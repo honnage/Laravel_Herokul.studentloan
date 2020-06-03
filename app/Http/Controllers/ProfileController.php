@@ -39,6 +39,13 @@ class ProfileController extends Controller
         $profiles->address = $request->address;
         $profiles->save();
 
+        DB::table('users')
+        ->where('users.id','=',$profiles->user_id )
+        ->update([
+        'detail' => 1,
+        ]);
+
+
         return redirect('/home');
     }
 
@@ -81,6 +88,13 @@ class ProfileController extends Controller
 
     public function dashboard(){
         $Profiles = DB::table('profiles')
+        ->join('send_documents','send_documents.profile_id','=','profiles.user_id')
+        ->join('accounts','send_documents.SendDocuments_id','=','send_documents.SendDocuments_id')
+        ->join('loan_types','loan_types.id','=','accounts.type_id')
+
+        // ->select('*','accounts.id as AccID','accounts.updated_at as AccountsAt')
+
+        // ->orderBy('accounts.id', 'DESC')
         ->select('*',)->get();
         return view('Profiles.dashboard',compact('Profiles'));
     }
@@ -91,29 +105,5 @@ class ProfileController extends Controller
         return view('Profiles.dashboardUser',compact('users'));
     }
 
-    public function editStatusUser($id){
-        // $users = DB::table('users')
-        // ->select('*',)
-        // ->where('users.id' ,'=',$id)
-        // ->get();
-        $Profiles = DB::table('profiles')
-        ->select('*',)
-        ->where('profiles.id' ,'=',$id)
-        ->get();
-        // dd($id);
-        return view('Profiles.editStatusUser',compact('Profiles'));
-    }
-    // public function editStatus($id){
-    //     $users = UserModel::find($id);
-    //     $details = DetailModel::find($id);
 
-    //     // $details = DB::table('details')
-    //     // ->where('details.user_id' ,'=',$id)
-    //     // ->get();
-    //     if($users->detail > 0 ){
-    //         return view('users.editStatus',compact('details','users'));
-    //     }else{
-    //         return view('users.editStatusDetailNull',compact('users'));        }
-
-    // }
 }
