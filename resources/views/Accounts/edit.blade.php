@@ -19,6 +19,9 @@
                 {{-- @method('PUT') --}}
                 <div class="form-inline">
                     <div class="form-group col-xs-12 col-sm-12 col-md-12 my-2">
+                    </div>
+
+                    <div class="form-group col-xs-12 col-sm-12 col-md-12 my-2">
                         <label class="col-sm-2">&nbsp; เลขบัตรประชาชน :</label>
                         <input type="text" class="form-control col-sm-10" name="IdentificationCode" id="IdentificationCode" placeholder="เลขบัตรประชาชน" value=" {{ $account->IdentificationCode }}" readonly>
                     </div>

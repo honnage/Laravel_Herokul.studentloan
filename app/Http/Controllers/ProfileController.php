@@ -78,4 +78,42 @@ class ProfileController extends Controller
     ]);
     return redirect('/home');
     }
+
+    public function dashboard(){
+        $Profiles = DB::table('profiles')
+        ->select('*',)->get();
+        return view('Profiles.dashboard',compact('Profiles'));
+    }
+
+    public function dashboardUser(){
+        $users = DB::table('users')
+        ->select('*',)->get();
+        return view('Profiles.dashboardUser',compact('users'));
+    }
+
+    public function editStatusUser($id){
+        // $users = DB::table('users')
+        // ->select('*',)
+        // ->where('users.id' ,'=',$id)
+        // ->get();
+        $Profiles = DB::table('profiles')
+        ->select('*',)
+        ->where('profiles.id' ,'=',$id)
+        ->get();
+        // dd($id);
+        return view('Profiles.editStatusUser',compact('Profiles'));
+    }
+    // public function editStatus($id){
+    //     $users = UserModel::find($id);
+    //     $details = DetailModel::find($id);
+
+    //     // $details = DB::table('details')
+    //     // ->where('details.user_id' ,'=',$id)
+    //     // ->get();
+    //     if($users->detail > 0 ){
+    //         return view('users.editStatus',compact('details','users'));
+    //     }else{
+    //         return view('users.editStatusDetailNull',compact('users'));        }
+
+    // }
 }

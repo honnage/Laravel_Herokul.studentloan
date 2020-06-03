@@ -97,9 +97,7 @@ class SendDocumentController extends Controller
         ->join('accounts','accounts.SendDocuments_id','=','send_documents.SendDocuments_id')
         ->select('*','send_documents.id as SendID','send_documents.created_at as SendDocumentsAt')
 
-        // ->groupBy('SendDocuments.id')
         ->orderBy('send_documents.id', 'DESC')
-        // ->orderBy('SendDocuments.school_year', 'หDESC')
         ->where('send_documents.id' ,'=',$id)
 
         ->get();
@@ -128,9 +126,7 @@ class SendDocumentController extends Controller
         // 'Duration' => $request->Duration ,
         ]);
 
-
         // return redirect('/home');
-
     return redirect('/SendDocuments/dashboard');
     }
 

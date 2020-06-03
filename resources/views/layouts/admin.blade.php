@@ -45,10 +45,10 @@
                                 <a class="nav-link" href="{{ route('LoanType.index') }}">{{ ('ประเภทการกู้') }}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="">{{ ('ข้อมูลการกู้') }}</a>
+                                <a class="nav-link" href="/Profiles/dashboard">{{ ('ข้อมูลการกู้') }}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="">{{ ('ข้อมูลผู้ใช้ในระบบ') }}</a>
+                                <a class="nav-link" href="/Profiles/dashboardUser">{{ ('ข้อมูลผู้ใช้ในระบบ') }}</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="/home">{{ ('โปรไฟล์') }}</a>
