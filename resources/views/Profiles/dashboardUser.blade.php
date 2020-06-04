@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">ข้อมูลการส่งเอกสาร&nbsp;&nbsp;&nbsp;</div>
+                <div class="card-header">ข้อมูลผู้ใช้ในระบบ&nbsp;&nbsp;&nbsp;</div>
                 @csrf
                 <body {{--class="text-center"--}} style="">
                 <table class="table " border="0">

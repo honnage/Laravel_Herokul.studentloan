@@ -7,7 +7,7 @@
             <div class="card">
 
                 <div class="card-header">
-                    ข้อมูลผู้ใช้ &nbsp;&nbsp;&nbsp;
+                    ข้อมูลการส่งเอกสาร  &nbsp;&nbsp;&nbsp;
                 </div>
                 @csrf
                 <body {{--class="text-center"--}} style="">
