@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 @section('content')
-h
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
@@ -37,7 +37,7 @@ h
                         <td>
                             <center>
                             @if(sizeof($Profiles) != 0)
-                                <a class="btn btn-success" href="/Accounts/show/{{$profile->id}}" >SHOW</a>
+                                <a class="btn btn-success" href="/Accounts/showAdmin/{{$profile->id}}" >SHOW</a>
                             @else
 
                             @endif

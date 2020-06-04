@@ -1,5 +1,5 @@
 
-@extends('layouts.app')
+@extends('layouts.admin')
 @section('content')
 @foreach($Profiles as $profile)
 
@@ -96,7 +96,7 @@
                                 {{-- @endif --}}
                             <td>
                                 <center>
-                                <a class="btn btn-success" href="/Accounts/details/{{$profile->SendDocuments_id}}" >SHOW</a>
+                                <a class="btn btn-success" href="/Accounts/detailsAdmin/{{$profile->SendDocuments_id}}" >SHOW</a>
                                 </center>
                             </td>
                             <?php $sum = $total ?>
@@ -115,7 +115,7 @@
                 <div class="form-inline">
                     <div class="form-group col-xs-12 col-sm-12 col-md-12 my-3">
                         <center>
-                            <a class="btn btn-primary" href="/home" >ย้อนกลับ</a>
+                            <a class="btn btn-primary" href="/Profiles/dashboard" >ย้อนกลับ</a>
                         </center>
                     </div>
                 </div>
@@ -128,7 +128,7 @@
     <div class="form-group col-xs-12 col-sm-12 col-md-12 my-2">
 
        <center><br><h1> ข้อมูลผู้ใช้ระบบของ ID นี้ ยังไม่มีรายการ ลงทะเบียนกู้ </h1>
-        <a class="btn btn-lg btn-primary my-3" href="/home" >ย้อนกลับ</a><br></center>
+        <a class="btn btn-lg btn-primary my-3" href="/Profiles/dashboard" >ย้อนกลับ</a><br></center>
 
     </div>
     @endif

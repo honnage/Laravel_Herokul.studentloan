@@ -67,7 +67,7 @@ class AccountController extends Controller
         return redirect('/Accounts/dashboard');
     }
 
-    public function show($id)
+    public function showAdmin($id)
     {
         //แบบเก่า heroku ไม่รองรับให้ groupBy
         // $Profiles = DB::table('profiles')
@@ -96,6 +96,27 @@ class AccountController extends Controller
         // ->groupBy('accounts.SendDocuments_id')
 
         ->get();
+        return view('Accounts.showAdmin',compact('Profiles'));
+    }
+
+    public function detailsAdmin($id){
+        $details = DB::table('send_documents')
+        ->join('loan_types','loan_types.id','=','send_documents.type_id')
+        ->select('*' )
+        ->where('send_documents.SendDocuments_id' ,'=',$id)
+        ->get();
+        return view('Accounts.detailsAdmin',compact('details'));
+    }
+
+    public function show($id)
+    {
+        $Profiles = DB::table('profiles')
+        ->join('send_documents','send_documents.profile_id','=','profiles.user_id')
+        ->join('accounts','accounts.SendDocuments_id','=','send_documents.SendDocuments_id')
+        ->join('loan_types','loan_types.id','=','send_documents.type_id')
+        ->where('profiles.user_id' ,'=',$id)
+        ->orderBy('accounts.SendDocuments_id', 'DESC')
+        ->get();
         return view('Accounts.show',compact('Profiles'));
     }
 
@@ -107,6 +128,7 @@ class AccountController extends Controller
         ->get();
         return view('Accounts.details',compact('details'));
     }
+
 
 
 }

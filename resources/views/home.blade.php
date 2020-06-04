@@ -38,16 +38,16 @@
                         <a href="{{Auth::user()->id}}" onclick="return confirm('คุณยังไม่ได้เพื่มข้อมูลส่วนตัว \nกรุณาเพื่มข้อมูลส่วนตัวก่อน ไม่งั้นไม่สามารถทำการ ส่งเอกสารได้')" class="btn btn-danger">ส่งเอกสาร</a>
                     @else
                         {{-- <a href="{{ route('SendDocument.create') }} " class="btn btn-outline-secondary" style="background: #AEC33A; color: white ">ส่งเอกสาร</a> --}}
-                        <a href="SendDocuments/create" class="btn btn-outline-secondary" style="background: #AEC33A; color: white ">ส่งเอกสาร</a>
+                        <a href="/SendDocuments/create" class="btn btn-outline-secondary" style="background: #AEC33A; color: white ">ส่งเอกสาร</a>
                     @endif
 
 
-                    {{-- @if( sizeof($accounts) == 0  )
+                    @if( sizeof($accounts) == 0  )
 
                     @else
-                        <a href="{{ route('SendDocument.show',Auth::user()->id ) }} " class="btn btn-outline-secondary" style="background: #0AC8DC; color: white ">แก้ไขเอกสาร</a>
-                        <a href="{{ route('Profiles.show',Auth::user()->id ) }} " class="btn btn-outline-secondary" style="background: #2C439B; color: white ">ประวัติการกู้ </a>
-                    @endif --}}
+                        <a href=" " class="btn btn-outline-secondary" style="background: #0AC8DC; color: white ">แก้ไขเอกสาร</a>
+                        <a href="Accounts/show/{{Auth::user()->id}}" class="btn btn-outline-secondary" style="background: #2C439B; color: white ">ประวัติการกู้ </a>
+                    @endif
 
                 </div>
             </div>

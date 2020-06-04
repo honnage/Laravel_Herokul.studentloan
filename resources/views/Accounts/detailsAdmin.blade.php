@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 @section('content')
 @foreach($details as $detail)
 
@@ -77,7 +77,7 @@
                     </div>
 
                     <div class="form-group col-xs-12 col-sm-12 col-md-12 my-4">
-                        <center><a class="btn btn-primary" href="/Accounts/show/{{$detail->profile_id}}"> ย้อนกลับ </a></center>
+                        <center><a class="btn btn-primary" href="/Accounts/showAdmin/{{$detail->profile_id}}"> ย้อนกลับ </a></center>
                     </div>
 
                 </div>
@@ -88,7 +88,7 @@
     <div class="form-group col-xs-12 col-sm-12 col-md-12 my-2">
 
        <center><br><h1> ข้อมูลผู้ใช้ระบบของ ID นี้ ยังไม่มีรายการ ลงทะเบียนกู้ </h1>
-        <a class="btn btn-primary" href="/Accounts/show/{{$detail->profile_id}}"> ย้อนกลับ </a>
+        <a class="btn btn-primary" href="/Accounts/showAdmin/{{$detail->profile_id}}"> ย้อนกลับ </a>
 
     </div>
     @endif

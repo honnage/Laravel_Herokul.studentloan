@@ -22,9 +22,8 @@ Route::middleware(['auth','StatusIS'])->group(function(){
     Route::get('Accounts/dashboard','AccountController@dashboard');
     Route::get('Accounts/edit/{id}','AccountController@edit');
     Route::post('Accounts/update/{id}','AccountController@update');
-    Route::get('Accounts/show/{id}','AccountController@show');
-    Route::get('Accounts/details/{id}','AccountController@details');
-
+    Route::get('Accounts/showAdmin/{id}','AccountController@showAdmin');
+    Route::get('Accounts/detailsAdmin/{id}','AccountController@detailsAdmin');
 
     Route::get('Profiles/dashboard','ProfileController@dashboard');
     Route::get('Profiles/dashboardUser','ProfileController@dashboardUser');
@@ -40,6 +39,13 @@ Route::middleware(['auth'])->group(function(){
 
     Route::get('SendDocuments/create','SendDocumentController@create');
     Route::post('SendDocuments/store','SendDocumentController@store');
+    Route::get('SendDocuments/show/{id}','SendDocumentController@show');
+
+    Route::get('Accounts/show/{id}','AccountController@show');
+    Route::get('Accounts/details/{id}','AccountController@details');
+
+
+
 
 });
 
