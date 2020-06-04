@@ -74,45 +74,26 @@
                         <tbody>
                         <tr>
                             <?php $total = $total + $profile->TuitionFee + $profile->Other + $profile->cost_living?>
-                            {{-- <td>{{ $profile->AccSD}}</td> --}}
                             <td>{{ $profile->SendDocuments_id }}</td>
-                            {{-- <td>{{ $profile->code }}</td> --}}
+                            <td>{{ $profile->code }}</td>
                             <td><center>{{ $profile->year }} / {{ $profile->term }}</center></td>
-                            <td>
-                                @if($profile->Duration == 0)
-                                    <center><h4><b> - </b></h4></center>
-                                @else
-                                    {{ $profile->Duration }} / เดือน
-                                @endif
-                            </td>
-                            <td>
-                                @if($profile->TuitionFee == 0)
-                                    <center><h4><b> - </b></h4></center>
-                                @else
-                                    {{ number_format($profile->TuitionFee) }}
-                                @endif
-                            </td>
-                            <td>
-                                @if($profile->Other == 0)
-                                    <center><h4><b> - </b></h4></center>
-                                @else
-                                    {{ number_format($profile->Other) }}
-                                @endif
-                            </td>
+                            <td>{{ $profile->Duration }} / เดือน</td>
+                            <td>{{ number_format($profile->TuitionFee) }}</td>
+                            <td>{{ number_format($profile->Other) }}</td>
                             {{-- <td>{{ number_format($profile->sumDuration) }} </td> --}}
                             <td>
-                                @if($profile->cost_living == 0)
+                                {{-- @if($profile->cost_living == 0)
                                     <center><h4><b> - </b></h4></center>
-                                @else
+                                @else --}}
                                     {{ number_format($profile->cost_living) }}
-                                @endif
+                                {{-- @endif --}}
                             </td>
                             <td>
-                                @if($profile->total == 0)
+                                {{-- @if($profile->total == 0)
                                     <center><h4><b> - </b></h4></center>
-                                @else
-                                    {{ number_format($profile->total) }}</td>
-                                @endif
+                                @else --}}
+                                    {{ number_format($profile->total + $profile->cost_living + $profile->Other + $profile->TuitionFee) }}</td>
+                                {{-- @endif --}}
                             <td>
                                 <center>
                                 <a class="btn btn-success" href="/Accounts/details/{{$profile->SendDocuments_id}}" >SHOW</a>

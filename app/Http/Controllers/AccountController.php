@@ -88,9 +88,7 @@ class AccountController extends Controller
         $Profiles = DB::table('profiles')
         ->join('send_documents','send_documents.profile_id','=','profiles.user_id')
         ->join('accounts','accounts.SendDocuments_id','=','send_documents.SendDocuments_id')
-        ->select('*',DB::raw('sum(accounts.TuitionFee + accounts.Other + accounts.cost_living ) as total'), )
-
-        // ->join('loan_types','loan_types.id','=','send_documents.type_id')
+        ->join('loan_types','loan_types.id','=','send_documents.type_id')
 
         ->where('profiles.user_id' ,'=',$id)
         // ->groupBy('accounts.SendDocuments_id')
