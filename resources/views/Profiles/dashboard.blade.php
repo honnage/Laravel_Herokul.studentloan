@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 @section('content')
-
+h
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
@@ -32,7 +32,7 @@
                         <td>{{ $profile->lname }}</td>
                         <td>{{ $profile->phone }}</td>
                         <td>{{ $profile->email }}</td>
-                        {{-- <td>{{ $profile->TuitionFee }}</td> --}}
+                        {{-- <td>{{ $data->id }}</td> --}}
                         {{-- <td>{{ number_format($profile->total) }}</td> --}}
                         <td>
                             <center>

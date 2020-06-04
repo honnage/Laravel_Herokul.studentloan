@@ -92,7 +92,7 @@
                                 {{-- @if($profile->total == 0)
                                     <center><h4><b> - </b></h4></center>
                                 @else --}}
-                                    {{ number_format($profile->total + $profile->cost_living + $profile->Other + $profile->TuitionFee) }}</td>
+                                    {{ number_format($profile->cost_living + $profile->Other + $profile->TuitionFee) }}</td>
                                 {{-- @endif --}}
                             <td>
                                 <center>

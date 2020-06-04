@@ -79,7 +79,7 @@ class SendDocumentController extends Controller
         $accounts->Other = "0";
         $accounts->Duration = "0";
         $accounts->cost_living = "0";
-        $accounts->total = "0";
+        // $accounts->total = "0";
         $accounts->details =  $sendDocument->description;
         $accounts->profile_id = Auth::user()->id;
         $accounts->SendDocuments_id = $sendDocument->SendDocuments_id;

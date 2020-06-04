@@ -13,7 +13,7 @@ class AccountModel extends Model
         'details',//ค่าอื่น
         'cost_living',
         'Duration',
-        'total',
+        // 'total',
         'profile_id',
         'SendDocuments_id',
         'type_id',

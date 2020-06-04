@@ -91,6 +91,8 @@ class AccountController extends Controller
         ->join('accounts','accounts.SendDocuments_id','=','send_documents.SendDocuments_id')
         ->join('loan_types','loan_types.id','=','send_documents.type_id')
         ->where('profiles.user_id' ,'=',$id)
+        ->orderBy('accounts.SendDocuments_id', 'DESC')
+
         // ->groupBy('accounts.SendDocuments_id')
 
         ->get();
