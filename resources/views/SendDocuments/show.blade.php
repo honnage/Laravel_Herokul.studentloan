@@ -71,7 +71,9 @@
                             @if( $send->document_status == 1 )
                                 <a class="btn btn-success col-sm-5" style=" color: white" onclick="return confirm('ไม่สามารถลบ ได้เนื่องจากได้ตรวจเอกสารแล้ว')"> NOPE </a>
                             @else
-                                <button type="submit" class="btn btn-danger col-sm-5"  onclick="return confirm('คุณต้องการลบข้อมูลนี้ใช่ไหม\n')" >DELETE</button>
+                                {{-- <button type="submit" class="btn btn-danger col-sm-5"  onclick="return confirm('คุณต้องการลบข้อมูลนี้ใช่ไหม\n')" >DELETE</button> --}}
+                                <input type="submit" value="DELETE" data-name="{{$send->SendDocuments_id}}" class="btn btn-danger deleteform">
+
                             @endif
                         </form>
                         </center>
