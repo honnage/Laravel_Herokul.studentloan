@@ -4,6 +4,11 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
+            @if(Session()->has('success'))
+                <div class="alert alert-success" role="alert">
+                    {{Session()->get('success')}}
+                </div>
+            @endif
             <div class="card">
 
                 <div class="card-header">
@@ -81,9 +86,11 @@
                                 {{-- @elseif($account->details == 1 )
                                     <a class="btn btn-outline-light"  style="background: #F2B660 ; " href=""> EDIT</a> --}}
                                 @elseif($account->details == 1)
-                                    <a class="btn btn-outline-light" style="background: #D70323; color: white" onclick="return confirm('ต้องได้การอนุมัติว่า ผ่าน ก่อน ')"> NOPE </a>
+                                    <input type="submit" value="NOPE" data-name="{{$account->SendDocuments_id}}" class="btn btn-outline-light nope" style="background: #D70323; color: white">
+                                    {{-- <a class="btn btn-outline-light" style="background: #D70323; color: white" onclick="return confirm('ต้องได้การอนุมัติว่า ผ่าน ก่อน ')"> NOPE </a> --}}
                                 @else
-                                    <a class="btn btn-outline-light" style="background: #007FE3; color: white" onclick="return confirm('กำลังตรวจสอบข้อมูล')"> WAIT </a>
+                                    <input type="submit" value="WAIT" data-name="{{$account->SendDocuments_id}}" class="btn btn-outline-light wait" style="background: #007FE3; color: white">
+                                    {{-- <a class="btn btn-outline-light" style="background: #007FE3; color: white" onclick="return confirm('กำลังตรวจสอบข้อมูล')"> WAIT </a> --}}
                                 @endif
                             </center>
                         </td>

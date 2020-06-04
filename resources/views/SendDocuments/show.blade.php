@@ -66,14 +66,15 @@
                         <center>
                         <form action="/SendDocuments/destroy/{{$send->SendDocuments_id}}" method="get">
 
-                            <a class="btn btn-outline-light col-sm-5" style="background: #007FE3; color: white"  href="/SendDocuments/details/{{$send->SendDocuments_id}}" >SHOW </a>
+                            <a class="btn btn-outline-light col-sm-5" style="background: rgb(6, 182, 74); color: white"  href="/SendDocuments/details/{{$send->SendDocuments_id}}" >แสดง </a>
 
                             @if( $send->document_status == 1 )
-                                <a class="btn btn-success col-sm-5" style=" color: white" onclick="return confirm('ไม่สามารถลบ ได้เนื่องจากได้ตรวจเอกสารแล้ว')"> NOPE </a>
+                                {{-- <a class="btn btn-info col-sm-5" style="background: rgb(103, 218, 253); color: white" onclick="return confirm('ไม่สามารถลบ ได้เนื่องจากได้ตรวจเอกสารแล้ว')"> ลบ </a> --}}
+                                <input type="submit" value="ลบ" data-name="{{$send->SendDocuments_id}}" class="btn btn-outline-light fail col-sm-5" style="background:rgb(103, 218, 253); color: white">
+
                             @else
                                 {{-- <button type="submit" class="btn btn-danger col-sm-5"  onclick="return confirm('คุณต้องการลบข้อมูลนี้ใช่ไหม\n')" >DELETE</button> --}}
-                                <input type="submit" value="DELETE" data-name="{{$send->SendDocuments_id}}" class="btn btn-danger deleteform">
-
+                                <input type="submit" value="ลบ" data-name="{{$send->SendDocuments_id}}" class="btn btn-danger deleteform col-sm-5">
                             @endif
                         </form>
                         </center>

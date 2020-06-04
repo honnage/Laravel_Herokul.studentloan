@@ -64,6 +64,7 @@ class AccountController extends Controller
 
         // $Accounts->save();
         // dd($request);
+        session()->flash("success","อัพเดทข้อมูลเรียบร้อย!");
         return redirect('/Accounts/dashboard');
     }
 

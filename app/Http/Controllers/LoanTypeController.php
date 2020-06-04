@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\LoanTypeModel;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
+
 
 class LoanTypeController extends Controller
 {
@@ -13,11 +15,12 @@ class LoanTypeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        $loantype = LoanTypeModel::all();
-        return view('LoanType.index',compact('loantype'));
-    }
+
+    // public function index()
+    // {
+    //     $loantype = LoanTypeModel::all();
+    //     return view('LoanType.index',compact('loantype'));
+    // }
 
     /**
      * Show the form for creating a new resource.
@@ -26,8 +29,10 @@ class LoanTypeController extends Controller
      */
     public function create()
     {
+        $data = LoanTypeModel::all();
+
         $loantype = DB::table('loan_types')->get();
-        return view('LoanType.create',compact('loantype'));
+        return view('LoanType.create',compact('loantype','data'));
     }
 
     /**
@@ -50,7 +55,10 @@ class LoanTypeController extends Controller
         $loantype->salary = $request->salary;
 
         $loantype->save();
-        return redirect('LoanType');
+        // dd($request);
+        session()->flash("success","เพิ่มข้อมูลเรียนร้อย!");
+
+        return redirect('/LoanType/create');
     }
 
     /**
@@ -75,7 +83,6 @@ class LoanTypeController extends Controller
         $loantype = DB::table('loan_types')
         ->where('loan_types.id' ,'=',$id)->get();
         return view('LoanType.edit',compact('loantype'));
-
     }
 
     /**
@@ -101,7 +108,8 @@ class LoanTypeController extends Controller
             'salary' => $request->salary,
         ]);
         // dd($request->id);
-        return redirect('LoanType');
+        session()->flash("success","อัพเดทข้อมูลเรียบร้อย!");
+        return redirect('/LoanType/create');
     }
 
     /**
@@ -112,7 +120,10 @@ class LoanTypeController extends Controller
      */
     public function destroy($id)
     {
-        DB::table('loan_types')->where('id','=',$id)->delete();
-        return redirect('LoanType');
+        DB::table('loan_types')
+        ->where('id','=',$id)
+        ->delete();
+        session()->flash("warning","ลบข้อมูลเรียบร้อยแล้ว!");
+        return redirect('/LoanType/create');
     }
 }

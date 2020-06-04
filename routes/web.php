@@ -13,7 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::middleware(['auth','StatusIS'])->group(function(){
-    Route::resource('/LoanType', 'LoanTypeController');
+    // Route::resource('/LoanType', 'LoanTypeController');
+
+    // Route::get('LoanType/','LoanTypeController@index');
+    Route::get('LoanType/create','LoanTypeController@create');
+    Route::post('LoanType/store','LoanTypeController@store');
+    Route::get('LoanType/edit/{id}','LoanTypeController@edit');
+    Route::post('LoanType/update/{id}','LoanTypeController@update');
+    Route::get('LoanType/destroy/{id}','LoanTypeController@destroy');
 
     Route::get('SendDocuments/dashboard','SendDocumentController@dashboard');
     Route::get('SendDocuments/edit/{id}','SendDocumentController@edit');
@@ -41,7 +48,6 @@ Route::middleware(['auth','checkID'])->group(function(){
     Route::get('SendDocuments/show/{id}','SendDocumentController@show');
     Route::get('SendDocuments/details/{id}','SendDocumentController@details');
     Route::get('SendDocuments/destroy/{id}','SendDocumentController@destroy');
-
 
     Route::get('Accounts/show/{id}','AccountController@show');
     Route::get('Accounts/details/{id}','AccountController@details');

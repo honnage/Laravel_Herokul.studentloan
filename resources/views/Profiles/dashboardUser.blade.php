@@ -4,6 +4,11 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
+            @if(Session()->has('success'))
+                <div class="alert alert-success" role="alert">
+                    {{Session()->get('success')}}
+                </div>
+            @endif
             <div class="card">
                 <div class="card-header">ข้อมูลผู้ใช้ในระบบ&nbsp;&nbsp;&nbsp;</div>
                 @csrf

@@ -39,7 +39,7 @@
                         <td>
                             <center>
                             @if(sizeof($Profiles) != 0)
-                                <a class="btn btn-success" href="/Accounts/showAdmin/{{$profile->id}}" >SHOW</a>
+                                <a class="btn btn-success" href="/Accounts/showAdmin/{{$profile->id}}" >แสดงข้อมูล</a>
                             @else
 
                             @endif

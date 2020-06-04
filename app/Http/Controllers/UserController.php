@@ -40,6 +40,7 @@ class UserController extends Controller
         $users->StatusID = $request->StatusID;
         $users->save();
         // UserModel::find($id)->update($request->all()); //บันทึกแบบทั้งหมด
+        session()->flash("success","อัพเดทสถานะเรียบร้อย!");
         return redirect('/Profiles/dashboardUser');
     }
 }

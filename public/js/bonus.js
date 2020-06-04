@@ -4,8 +4,8 @@ $(document).ready(function(){
         var form=$(this).closest("form");
         evt.preventDefault();
         swal({
-            title:`ต้องการลบข้อมูล ${name} หรือไม่ ?`,
-            text:"ถ้าลบแล้วไม่สามารถกู้คืนได้",
+            title:`ต้องการลบข้อมูลหรือไม่ ?`,
+            text:`ถ้าลบข้อมูลรหัส ${name} นี้ แล้วไม่สามารถกู้คืนได้`,
             icon:"warning",
             buttons:true,
             dangerMode:true

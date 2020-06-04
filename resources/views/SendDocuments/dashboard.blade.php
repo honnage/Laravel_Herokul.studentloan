@@ -4,6 +4,11 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
+            @if(Session()->has('success'))
+                <div class="alert alert-success" role="alert">
+                    {{Session()->get('success')}}
+                </div>
+            @endif
             <div class="card">
                 <div class="card-header">ข้อมูลการส่งเอกสาร&nbsp;&nbsp;&nbsp;</div>
                 @csrf
@@ -37,7 +42,7 @@
                         </td>
                         <td>
                             <center>
-                            <a class="btn btn-warning" href="/SendDocuments/edit/{{$send->SendID}}" >EDIT</a>
+                            <a class="btn btn-warning" href="/SendDocuments/edit/{{$send->SendID}}" >แก้ไข</a>
                             </center>
                         </td>
                     </tr>

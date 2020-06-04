@@ -10,12 +10,13 @@
 
         <div class="table-responsive">
             <div class="card-header">แก้ไขประเภทการกู้เงิน &nbsp;&nbsp;
-                <a href="{{ route('LoanType.index') }}"> หัวข้อประเภทงานทั้งหมด </a>&nbsp;&nbsp;
+                <a href="/LoanType/create"> หัวข้อประเภทงานทั้งหมด </a>&nbsp;&nbsp;
             </div>
 
-            <form action="{{ route('LoanType.update',$type->id) }}" method="post" >
+            {{-- <form action="/LoanType/update/{{$type->id}}" method="post" > --}}
+            <form action="/LoanType/update/{{$type->id}}" method="post" >
                 {{csrf_field()}}
-                @method('PUT')
+                {{-- @method('PUT') --}}
                 <div class="form-inline">
                     <div class="form-group col-xs-12 col-sm-12 col-md-12 my-3">
                         <label class="col-sm-2">&nbsp; ประเภทการกู้เงิน <label style="color:red;"> * </label></label>

@@ -129,7 +129,8 @@ class SendDocumentController extends Controller
         ]);
 
         // return redirect('/home');
-    return redirect('/SendDocuments/dashboard');
+        session()->flash("success","อัพเดทข้อมูลเรียบร้อย!");
+        return redirect('/SendDocuments/dashboard');
     }
 
     public function show($id)
@@ -175,5 +176,6 @@ class SendDocumentController extends Controller
         ->where('send_documents.SendDocuments_id' ,'=',$id)
         ->get();
         return view('SendDocuments.details',compact('details'));
+
     }
 }

@@ -96,7 +96,7 @@
                                 {{-- @endif --}}
                             <td>
                                 <center>
-                                <a class="btn btn-success" href="/Accounts/details/{{$profile->SendDocuments_id}}" >SHOW</a>
+                                <a class="btn btn-success" href="/Accounts/details/{{$profile->SendDocuments_id}}" >แสดงข้อมูล</a>
                                 </center>
                             </td>
                             <?php $sum = $total ?>
