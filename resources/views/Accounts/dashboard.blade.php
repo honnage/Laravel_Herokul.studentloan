@@ -76,11 +76,11 @@
                         </td>
                         <td>
                             <center>
-                                @if( $account->description == 2  )
+                                @if( $account->details == 2  )
                                     <a class="btn btn-outline-light" style="background: #05CA26" href="/Accounts/edit/{{$account->SendDocuments_id}}" > PASS</a>
-                                @elseif($account->description == 1 )
-                                    <a class="btn btn-outline-light"  style="background: #F2B660 ; " href=""> EDIT</a>
-                                @elseif($account->description == 0)
+                                {{-- @elseif($account->details == 1 )
+                                    <a class="btn btn-outline-light"  style="background: #F2B660 ; " href=""> EDIT</a> --}}
+                                @elseif($account->details == 1)
                                     <a class="btn btn-outline-light" style="background: #D70323; color: white" onclick="return confirm('ต้องได้การอนุมัติว่า ผ่าน ก่อน ')"> NOPE </a>
                                 @else
                                     <a class="btn btn-outline-light" style="background: #007FE3; color: white" onclick="return confirm('กำลังตรวจสอบข้อมูล')"> WAIT </a>
