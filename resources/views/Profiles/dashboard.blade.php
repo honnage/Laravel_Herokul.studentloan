@@ -34,7 +34,6 @@
                         <td>{{ $profile->email }}</td>
                         {{-- <td>{{ $profile->TuitionFee }}</td> --}}
                         {{-- <td>{{ number_format($profile->total) }}</td> --}}
-
                         <td>
                             <center>
                             @if(sizeof($Profiles) != 0)
