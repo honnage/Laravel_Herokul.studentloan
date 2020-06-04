@@ -33,19 +33,18 @@ Route::middleware(['auth','StatusIS'])->group(function(){
 
 });
 
-
-Route::middleware(['auth'])->group(function(){
+Route::middleware(['auth','checkID'])->group(function(){
     Route::resource('/Profiles', 'ProfileController');
 
     Route::get('SendDocuments/create','SendDocumentController@create');
     Route::post('SendDocuments/store','SendDocumentController@store');
     Route::get('SendDocuments/show/{id}','SendDocumentController@show');
+    Route::get('SendDocuments/details/{id}','SendDocumentController@details');
+    Route::get('SendDocuments/destroy/{id}','SendDocumentController@destroy');
+
 
     Route::get('Accounts/show/{id}','AccountController@show');
     Route::get('Accounts/details/{id}','AccountController@details');
-
-
-
 
 });
 

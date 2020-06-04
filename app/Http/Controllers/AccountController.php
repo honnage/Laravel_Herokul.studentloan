@@ -102,7 +102,12 @@ class AccountController extends Controller
     public function detailsAdmin($id){
         $details = DB::table('send_documents')
         ->join('loan_types','loan_types.id','=','send_documents.type_id')
-        ->select('*' )
+        ->select(
+            '*',
+            'send_documents.id as SendID',
+            'send_documents.description as SendDescription',
+            'send_documents.SendDocuments_id as SendDesID',
+            'send_documents.created_at as SendDocumentsAt')
         ->where('send_documents.SendDocuments_id' ,'=',$id)
         ->get();
         return view('Accounts.detailsAdmin',compact('details'));
@@ -123,7 +128,12 @@ class AccountController extends Controller
     public function details($id){
         $details = DB::table('send_documents')
         ->join('loan_types','loan_types.id','=','send_documents.type_id')
-        ->select('*' )
+        ->select(
+            '*',
+            'send_documents.id as SendID',
+            'send_documents.description as SendDescription',
+            'send_documents.SendDocuments_id as SendDesID',
+            'send_documents.created_at as SendDocumentsAt')
         ->where('send_documents.SendDocuments_id' ,'=',$id)
         ->get();
         return view('Accounts.details',compact('details'));

@@ -18,6 +18,7 @@
                         {{-- <th><center>profile_id</center></th> --}}
                         <th><center>ชื่อ</center></th>
                         <th><center>นามสุกล</center></th>
+                        <th><center>เพศ</center></th>
                         <th><center>เบอร์โทร</center></th>
                         <th><center>Email</center></th>
                         {{-- <th><center>ยอดเงินรวม</center></th> --}}
@@ -30,6 +31,7 @@
                         {{-- <td>{{ $profile->SendDocuments_id }}</td> --}}
                         <td>{{ $profile->fname }}</td>
                         <td>{{ $profile->lname }}</td>
+                        <td><center>{{ $profile->gender }}</center></td>
                         <td>{{ $profile->phone }}</td>
                         <td>{{ $profile->email }}</td>
                         {{-- <td>{{ $data->id }}</td> --}}

@@ -9,7 +9,7 @@
         <div class="card">
     @if(sizeof($details) != 0)
         <div class="table-responsive">
-            <div class="card-header">ข้อมูลการกู้ &nbsp;&nbsp;
+            <div class="card-header">ข้อมูลการกู้ {{ $detail->SendID }}&nbsp;&nbsp;
                 {{-- <a href="{{ route('Profiles.index') }}"> My Profile </a>&nbsp;&nbsp; --}}
                 {{-- <a href="{{ route('AdminProfiles.show',$detail->profile_id) }}"> ย้อนกลับ </a>&nbsp;&nbsp; --}}
             </div>

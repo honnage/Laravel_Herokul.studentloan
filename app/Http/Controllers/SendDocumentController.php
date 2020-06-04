@@ -131,4 +131,48 @@ class SendDocumentController extends Controller
     return redirect('/SendDocuments/dashboard');
     }
 
+    public function show($id)
+    {
+        $SendDocument = DB::table('send_documents')
+
+        ->join('profiles','profiles.user_id','=','send_documents.profile_id')
+        ->join('loan_types','loan_types.id','=','send_documents.type_id')
+
+        ->select(
+            '*',
+            'send_documents.id as SendID',
+            'send_documents.description as SendDescription',
+            'send_documents.SendDocuments_id as SendDesID',
+            'send_documents.created_at as SendDocumentsAt')
+        ->where('send_documents.profile_id' ,'=',$id)
+        ->orderBy('send_documents.id', 'DESC')
+        ->get();
+        return view('SendDocuments.show',compact('SendDocument'));
+    }
+
+    public function destroy($id)
+    {
+        DB::table('send_documents')
+        ->where('send_documents.SendDocuments_id','=',$id)
+        ->delete();
+
+        DB::table('accounts')
+        ->where('accounts.SendDocuments_id','=',$id)
+        ->delete();
+        return redirect('home');
+    }
+
+    public function details($id){
+        $details = DB::table('send_documents')
+        ->join('loan_types','loan_types.id','=','send_documents.type_id')
+        ->select(
+            '*',
+            'send_documents.id as SendID',
+            'send_documents.description as SendDescription',
+            'send_documents.SendDocuments_id as SendDesID',
+            'send_documents.created_at as SendDocumentsAt')
+        ->where('send_documents.SendDocuments_id' ,'=',$id)
+        ->get();
+        return view('SendDocuments.details',compact('details'));
+    }
 }

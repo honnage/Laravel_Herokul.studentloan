@@ -38,9 +38,9 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="/home">{{ ('โปรไฟล์') }}</a>
                             </li>
-                            <li class="nav-item">
+                            {{-- <li class="nav-item">
                                 <a class="nav-link" href="/Accounts/show/{{Auth::user()->id}}">{{ ('ประวัติการกู้') }}</a>
-                            </li>
+                            </li> --}}
                         </ul>
                     </ul>
 

@@ -40,4 +40,8 @@ class User extends Authenticatable
     public function checkIsStatus(){
         return $this->StatusID;
     }
+
+    public function checkID(){
+        return $this->id;
+    }
 }
