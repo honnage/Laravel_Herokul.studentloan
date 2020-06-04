@@ -14,8 +14,8 @@
                 <table class="table" border="0">
                     <thead class="thead-dark">
                         {{-- <th><center>#ID</center></th> --}}
-                        <th><center>ประเภท</center></th>
                         <th><center>ชื่อย่อ</center></th>
+                        <th><center>ประเภท</center></th>
                         <th><center>ค่าครองชีพ</center></th>
                         <th><center>ดำเนินการ</center></th>
                     </thead>
@@ -23,8 +23,8 @@
                     <tbody>
                     <tr>
                         {{-- <td>{{ $type->id}}</td> --}}
-                        <td>{{ $type->type }}</td>
                         <td><center>{{ $type->code }}</center></td>
+                        <td>{{ $type->type }}</td>
                         <td><center>{{ number_format($type->salary) }} / เดือน</center></td>
                         <td>
                             <center>
