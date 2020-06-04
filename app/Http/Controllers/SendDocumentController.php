@@ -40,7 +40,8 @@ class SendDocumentController extends Controller
         //เพื่มข้อมูลตาราง SendDocuments
         $sendDocument = new SendDocumentModel();
         $request->validate([
-            'Student_ID'=>'required|unique:send_documents',
+            'SendDocuments_id'=>'required|unique:send_documents',
+            'Student_ID'=>'required',
             'academy'=>'required',
             'faculty'=>'required',
             'major'=>'required',
