@@ -69,6 +69,7 @@ class AccountController extends Controller
 
     public function show($id)
     {
+        //แบบเก่า heroku ไม่รองรับให้ groupBy
         // $Profiles = DB::table('profiles')
         // ->join('send_documents','send_documents.profile_id','=','profiles.user_id')
         // ->join('accounts','accounts.SendDocuments_id','=','send_documents.SendDocuments_id')
@@ -81,15 +82,14 @@ class AccountController extends Controller
         // ->where('profiles.user_id' ,'=',$id)
         // ->orderBy('accounts.id', 'DESC')
         // ->groupBy('accounts.SendDocuments_id')
-
         // ->get();
         // return view('Accounts.show',compact('Profiles'));
 
+        //แบบแก้ไข
         $Profiles = DB::table('profiles')
         ->join('send_documents','send_documents.profile_id','=','profiles.user_id')
         ->join('accounts','accounts.SendDocuments_id','=','send_documents.SendDocuments_id')
         ->join('loan_types','loan_types.id','=','send_documents.type_id')
-
         ->where('profiles.user_id' ,'=',$id)
         // ->groupBy('accounts.SendDocuments_id')
 

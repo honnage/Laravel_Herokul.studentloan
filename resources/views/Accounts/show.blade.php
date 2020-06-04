@@ -24,7 +24,7 @@
                     <div class="form-group col-xs-12 col-sm-12 col-md-12 my-2">
                     </div>
 
-                    {{-- <div class="form-group col-xs-12 col-sm-12 col-md-12 my-2">
+                    <div class="form-group col-xs-12 col-sm-12 col-md-12 my-2">
                         <label class="col-sm-2">&nbsp; เลขบัตรประชาชน :</label>
                         <input type="text" class="form-control col-sm-10" name="IdentificationCode" id="IdentificationCode" placeholder="เลขบัตรประชาชน" value=" {{ $profile->IdentificationCode }}" readonly>
                     </div>
@@ -48,7 +48,7 @@
                     <div class="form-group col-xs-12 col-sm-12 col-md-12 my-2">
                         <label class="col-sm-2">&nbsp; ที่อยู่ :</label>
                         <input type="text" class="form-control col-sm-10" name="address" id="address" placeholder="ที่อยู่" value=" {{ $profile->address }}" readonly>
-                    </div> --}}
+                    </div>
 
                     {{-- <div class="form-group col-xs-12 col-sm-12 col-md-12 my-2">
                         <label class="col-sm-2">&nbsp; ยอดเงินกู้รวม :</label>
