@@ -3,44 +3,32 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use App\ProfileModel;
-use App\UserModel;
+use App\Models\User;
+
 
 class UserController extends Controller
 {
-    public function editStatus($id){
-        $data = UserModel::find($id);
-
-        $users = DB::table('users')
-        ->join('profiles','profiles.user_id','=','users.id')
-        ->select('*','users.id as id','profiles.id as ProID')
-
-        ->where('users.id' ,'=',$id)
-        ->get();
-
-        $user = DB::table('users')
-        ->where('users.id' ,'=',$id)
-        ->get();
-
-        if($data->detail == 0 ){
-            return view('Users.editStatus_null',compact('user'));
-        }else{
-            return view('Users.editStatus',compact('users'));
-
-        }
+    public function __construct()
+    {
+        $this->middleware('auth');
     }
 
-    public function update(Request $request, $id){
-        $request->validate([
-            'StatusID'=>'required',
-        ]);
+    public function index()
+    {
+        return view('users.index')->with('users',User::all());
+    }
 
-        $users = UserModel::find($id);
-        $users->StatusID = $request->StatusID;
-        $users->save();
-        // UserModel::find($id)->update($request->all()); //บันทึกแบบทั้งหมด
-        session()->flash("success","อัพเดทสถานะเรียบร้อย!");
-        return redirect('/Profiles/dashboardUser');
+    public function changeAdmin(User $user){
+        $user->role='admin';
+        $user->save();
+        Session()->flash('success','เปลี่ยนแปลงสถานะเป็น Admin เรียบร้อยแล้ว');
+        return redirect('/users');
+    }
+
+    public function changeUser(User $user){
+        $user->role='writer';
+        $user->save();
+        Session()->flash('success','เปลี่ยนแปลงสถานะเป็น writer เรียบร้อยแล้ว');
+        return redirect('/users');
     }
 }

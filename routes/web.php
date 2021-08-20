@@ -1,6 +1,14 @@
 <?php
+use App\Http\Controllers\ShowModel3DController;
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\TagsController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\WelcomeController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -12,53 +20,46 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::middleware(['auth','StatusIS'])->group(function(){
-    // Route::resource('/LoanType', 'LoanTypeController');
 
-    // Route::get('LoanType/','LoanTypeController@index');
-    Route::get('LoanType/create','LoanTypeController@create');
-    Route::post('LoanType/store','LoanTypeController@store');
-    Route::get('LoanType/edit/{id}','LoanTypeController@edit');
-    Route::post('LoanType/update/{id}','LoanTypeController@update');
-    Route::get('LoanType/destroy/{id}','LoanTypeController@destroy');
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
+Route::get('blog/posts/{post}', [App\Http\Controllers\Blog\PostController::class, 'show']);
+Route::get('blog/category/{category}', [App\Http\Controllers\Blog\PostController::class, 'category']);
+Route::get('blog/tag/{tag}', [App\Http\Controllers\Blog\PostController::class, 'tag']);
 
-    Route::get('SendDocuments/dashboard','SendDocumentController@dashboard');
-    Route::get('SendDocuments/edit/{id}','SendDocumentController@edit');
-    Route::post('SendDocuments/update/{id}','SendDocumentController@update');
+Route::get('showmodel', [ShowModel3DController::class, 'index']);
 
-    Route::get('Accounts/dashboard','AccountController@dashboard');
-    Route::get('Accounts/edit/{id}','AccountController@edit');
-    Route::post('Accounts/update/{id}','AccountController@update');
-    Route::get('Accounts/showAdmin/{id}','AccountController@showAdmin');
-    Route::get('Accounts/detailsAdmin/{id}','AccountController@detailsAdmin');
+Route::middleware(['auth'])->group(function(){
+    Route::get('categories', [CategoryController::class, 'index']);
+    Route::get('categories/create', [CategoryController::class, 'create']);
+    Route::post('categories/store', [CategoryController::class, 'store']);
+    Route::get('categories/edit/{id}',[CategoryController::class, 'edit']);
+    Route::post('categories/update/{id}',[CategoryController::class, 'update']);
+    Route::post('categories/destroy/{id}',[CategoryController::class, 'destroy']);
 
-    Route::get('Profiles/dashboard','ProfileController@dashboard');
-    Route::get('Profiles/dashboardUser','ProfileController@dashboardUser');
+    Route::get('posts', [PostController::class, 'index']);
+    Route::get('posts/create', [PostController::class, 'create']);
+    Route::post('posts/store', [PostController::class, 'store']);
+    Route::get('posts/edit/{id}',[PostController::class, 'edit']);
+    Route::post('posts/update/{id}',[PostController::class, 'update']);
+    Route::post('posts/destroy/{id}',[PostController::class, 'destroy']);
 
-    Route::get('User/editStatus/{id}','UserController@editStatus');
-    Route::post('User/update/{id}','UserController@update');
-
-});
-
-Route::middleware(['auth','checkID'])->group(function(){
-    Route::resource('/Profiles', 'ProfileController');
-
-    Route::get('SendDocuments/create','SendDocumentController@create');
-    Route::post('SendDocuments/store','SendDocumentController@store');
-    Route::get('SendDocuments/show/{id}','SendDocumentController@show');
-    Route::get('SendDocuments/details/{id}','SendDocumentController@details');
-    Route::get('SendDocuments/destroy/{id}','SendDocumentController@destroy');
-
-    Route::get('Accounts/show/{id}','AccountController@show');
-    Route::get('Accounts/details/{id}','AccountController@details');
+    Route::get('tags', [TagsController::class, 'index']);
+    Route::get('tags/create', [TagsController::class, 'create']);
+    Route::post('tags/store', [TagsController::class, 'store']);
+    Route::get('tags/edit/{id}',[TagsController::class, 'edit']);
+    Route::post('tags/update/{id}',[TagsController::class, 'update']);
+    Route::post('tags/destroy/{id}',[TagsController::class, 'destroy']);
 
 });
 
+Route::middleware(['auth','admin'])->group(function(){
+    Route::get('users', [UserController::class, 'index']);
+    Route::post('users/changeAdmin/{user}', [UserController::class, 'ChangeAdmin']);
+    Route::post('users/changeUser/{user}', [UserController::class, 'changeUser']);
+});  
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
